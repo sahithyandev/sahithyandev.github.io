@@ -2,23 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://sahithyandev.github.io/404</loc>
+    <changefreq>monthly</changefreq>
+    <lastmod>2021-04-25</lastmod>
   </url>
   <url>
     <loc>https://sahithyandev.github.io/about</loc>
+    <changefreq>monthly</changefreq>
+    <lastmod>2021-05-02</lastmod>
   </url>
   <url>
     <loc>https://sahithyandev.github.io/</loc>
+    <changefreq>monthly</changefreq>
+    <lastmod>2021-06-08</lastmod>
   </url>
   <url>
     <loc>https://sahithyandev.github.io/posts</loc>
+    <changefreq>monthly</changefreq>
+    <lastmod>2021-05-23</lastmod>
+  </url>
+  <url>
+    <loc>https://sahithyandev.github.io/post/building-xcalc</loc>
+    <changefreq>monthly</changefreq>
+    <lastmod>2021-06-10</lastmod>
   </url>
   <url>
     <loc>https://sahithyandev.github.io/post/divisibility-rules</loc>
+    <changefreq>monthly</changefreq>
+    <lastmod>2021-04-29</lastmod>
   </url>
   <url>
     <loc>https://sahithyandev.github.io/post/introduction-to-my-blog</loc>
+    <changefreq>monthly</changefreq>
+    <lastmod>2021-04-19</lastmod>
   </url>
   <url>
     <loc>https://sahithyandev.github.io/post/javascript-shorthands</loc>
+    <changefreq>monthly</changefreq>
+    <lastmod>2021-04-18</lastmod>
   </url>
 </urlset>
