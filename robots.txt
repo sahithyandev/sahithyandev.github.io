@@ -1,2 +1,0 @@
-User-Agent: *
-Sitemap: https://sahithyandev.github.io/sitemap.xml
