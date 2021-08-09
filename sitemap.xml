@@ -1,43 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://sahithyandev.github.io/404</loc>
-    <changefreq>monthly</changefreq>
-    <lastmod>2021-07-10</lastmod>
-  </url>
-  <url>
-    <loc>https://sahithyandev.github.io/about</loc>
-    <changefreq>monthly</changefreq>
-    <lastmod>2021-07-10</lastmod>
-  </url>
-  <url>
-    <loc>https://sahithyandev.github.io/</loc>
-    <changefreq>monthly</changefreq>
-    <lastmod>2021-07-20</lastmod>
-  </url>
-  <url>
-    <loc>https://sahithyandev.github.io/posts</loc>
-    <changefreq>monthly</changefreq>
-    <lastmod>2021-07-10</lastmod>
-  </url>
-  <url>
-    <loc>https://sahithyandev.github.io/post/building-xcalc</loc>
-    <changefreq>monthly</changefreq>
-    <lastmod>2021-07-10</lastmod>
-  </url>
-  <url>
-    <loc>https://sahithyandev.github.io/post/divisibility-rules</loc>
-    <changefreq>monthly</changefreq>
-    <lastmod>2021-07-10</lastmod>
-  </url>
-  <url>
-    <loc>https://sahithyandev.github.io/post/introduction-to-my-blog</loc>
-    <changefreq>monthly</changefreq>
-    <lastmod>2021-07-10</lastmod>
-  </url>
-  <url>
-    <loc>https://sahithyandev.github.io/post/javascript-shorthands</loc>
-    <changefreq>monthly</changefreq>
-    <lastmod>2021-07-06</lastmod>
-  </url>
-</urlset>
+		<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+		<url>
+	<loc>https:/sahithyandev.github.io/</loc>
+	<changefreq>monthly</changefreq>
+	<lastmod>2021-08-09</lastmod>
+</url>
+<url>
+	<loc>https:/sahithyandev.github.io/about</loc>
+	<changefreq>monthly</changefreq>
+	<lastmod>2021-08-09</lastmod>
+</url>
+<url>
+	<loc>https:/sahithyandev.github.io/posts</loc>
+	<changefreq>monthly</changefreq>
+	<lastmod>2021-08-09</lastmod>
+</url>
+<url>
+	<loc>https:/sahithyandev.github.io/post/building-xcalc</loc>
+	<changefreq>monthly</changefreq>
+	<lastmod>2021-08-09</lastmod>
+</url>
+<url>
+	<loc>https:/sahithyandev.github.io/post/divisibility-rules</loc>
+	<changefreq>monthly</changefreq>
+	<lastmod>2021-08-09</lastmod>
+</url>
+<url>
+	<loc>https:/sahithyandev.github.io/post/javascript-shorthands</loc>
+	<changefreq>monthly</changefreq>
+	<lastmod>2021-08-09</lastmod>
+</url>
+		</urlset>

@@ -1,0 +1,73 @@
+.tags-container {
+  display: flex;
+  gap: 0.25rem;
+}
+.tags-container .tag::before {
+  content: "#";
+  margin: 1px;
+  opacity: 0.5;
+}
+
+.posts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.post-card {
+  --post-card-bg: hsl(236,10%,25%);
+  --post-card-bg-hover: hsl(240,10%,32%);
+}
+.post-card a:hover {
+  text-decoration: underline 3px;
+}
+.post-card .title {
+  margin: 0.2rem 0 0.4rem;
+  font-size: 1.25rem;
+}
+.post-card .description {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+.post-card .post-released-date {
+  font-size: 0.875rem;
+}
+.post-card .tags-container {
+  justify-content: flex-end;
+}
+
+.post-card {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.search-container {
+  margin: 12px 0 36px;
+}
+.search-container input[type=text] {
+  border: none;
+  width: 100%;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-family: Inter, ui-sans-serif, sans-serif;
+}
+.search-container input[type=text]::placeholder {
+  opacity: 0.8;
+  color: var(--light);
+  user-select: none;
+}
+.search-container input[type=text]:disabled {
+  margin-bottom: 8px;
+  background: #272727;
+  cursor: not-allowed;
+}
+.search-container input[type=text]:disabled::placeholder {
+  color: #797979;
+}
+.search-container noscript {
+  font-size: 0.9em;
+}
