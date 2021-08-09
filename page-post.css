@@ -1,6 +1,7 @@
 @charset "UTF-8";
 .tags-container {
   display: flex;
+  justify-content: flex-end;
   gap: 0.25rem;
 }
 .tags-container .tag::before {
@@ -32,11 +33,13 @@
   font-size: 0.875rem;
 }
 .post-meta--release-date {
+  width: max-content;
   grid-area: release-date;
 }
 .post-meta--reading-time {
+  width: max-content;
   grid-area: reading-time;
-  text-align: right;
+  justify-self: flex-end;
 }
 .post-meta .tags-container {
   grid-area: tags;
@@ -84,6 +87,7 @@ article img.block.latex.size-small {
   padding: 10px 0;
 }
 article figure blockquote {
+  margin: auto;
   max-width: 65ch;
 }
 article figure figcaption {
