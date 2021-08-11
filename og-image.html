@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>OG Image</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" />
+	<style>
+		html,
+		body {
+			margin: 0;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+			font-size: 20px;
+			font-family: "Inter";
+		}
+
+		.og-image {
+			background-color: #efefef;
+			width: 1200px;
+			height: 630px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			padding: 80px 160px;
+		}
+
+		#my-image {
+			width: 14%;
+		}
+
+		#title {
+			max-width: 22ch;
+			font-size: 3.4rem;
+			font-weight: bold;
+			text-align: center;
+		}
+
+		#meta-info {
+			display: flex;
+			justify-content: space-around;
+			width: 100%;
+			font-weight: 500;
+			font-size: 1.1rem;
+		}
+
+		#tags {
+			display: flex;
+			gap: 5px;
+		}
+
+		#tags .tag::before {
+			content: "#";
+			opacity: .9;
+		}
+
+		#release-date {
+			color: rgb(44, 44, 44);
+		}
+	</style>
+</head>
+
+<body>
+	<div class="og-image">
+		<img src="./../public/apple-touch-icon.png" alt="" id="my-image" />
+		<h1 id="title">Hello JavaScript!</h1>
+
+		<div id="meta-info">
+			<span id="release-date">
+				27 February 2021
+			</span>
+
+			</span>
+			<div id="tags">
+				<div class="tag">javascript</div>
+				<div class="tag">webdev</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
