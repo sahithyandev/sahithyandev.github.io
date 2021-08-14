@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    const BUILD_ID = 9331564;
+    const BUILD_ID = 3736207;
 
     // TODO try to make it ts-compatible
     var CACHE_NAME = "blog-cache-" + BUILD_ID;
