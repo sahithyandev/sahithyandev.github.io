@@ -86,6 +86,12 @@ article img.block.latex {
 article img.block.latex.size-small {
   padding: 10px 0;
 }
+article figure {
+  margin: 0;
+  padding: 1em 40px;
+  background-color: #414148;
+  border-radius: 5px;
+}
 article figure blockquote {
   margin: auto;
   max-width: 65ch;
