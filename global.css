@@ -24,6 +24,7 @@ html {
   margin: 0 auto;
   max-width: 96vw;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -33,7 +34,6 @@ body {
   margin: 0 auto;
   color: var(--light);
   background-color: var(--dark);
-  scroll-behavior: smooth;
 }
 @media (max-width: 640px) {
   body {

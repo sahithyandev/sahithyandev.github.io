@@ -21,7 +21,7 @@
 }
 
 .post-title {
-  margin: 2rem 0 0.25rem;
+  margin: 2rem 0 0.5rem;
   font-size: 1.5rem;
 }
 
@@ -43,6 +43,8 @@
 }
 .post-meta .tags-container {
   grid-area: tags;
+  justify-self: end;
+  justify-content: flex-end;
 }
 
 .toc-container h3 {
