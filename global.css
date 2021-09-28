@@ -65,13 +65,75 @@ nav .nav--logo {
 nav ul {
   list-style-type: none;
   display: flex;
+}
+
+@keyframes fadeIn {
+  to {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+@keyframes horizontalFadeOut {
+  to {
+    transform: translateX(-100%);
+  }
+}
+@keyframes verticalFadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+nav.mobile {
+  --margin-top: 1.5rem;
+  margin-top: var(--margin-top);
+}
+nav.mobile .toggled-bg {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  background: #161618;
+  opacity: 0;
+  transform: translateY(-100%);
+  animation: fadeIn 0.3s ease-in-out 0.2s forwards;
+}
+nav.mobile .toggled-bg.hide {
+  opacity: 1;
+  transform: translate(0);
+  animation: verticalFadeOut 0.3s ease-in-out 1s forwards;
+}
+nav.mobile .toggled-bg .close-btn {
+  position: absolute;
+  top: var(--margin-top);
+  right: 12px;
+}
+nav.mobile .toggled-bg ul {
+  flex-direction: column;
+  font-size: 2rem;
+  gap: 28px;
+  font-weight: 500;
+  margin-top: 200px;
+}
+nav.mobile .toggled-bg ul li {
+  transform: translate(-100%);
+  animation: fadeIn 0.5s ease-in-out var(--animation-delay) forwards;
+}
+nav.mobile .toggled-bg ul li.hide {
+  transform: translate(0);
+  animation: horizontalFadeOut 0.5s ease-in-out var(--animation-delay) forwards;
+}
+
+nav.desktop ul {
   gap: 1rem;
 }
-nav ul .nav--link {
+nav.desktop ul .nav--link {
   opacity: 0.6;
   transition: opacity cubic-bezier(0.4, 0, 0.2, 1) 150ms;
 }
-nav ul .nav--link:hover {
+nav.desktop ul .nav--link:hover {
   opacity: 1;
 }
 
