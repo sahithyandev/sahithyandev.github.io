@@ -109,6 +109,7 @@ nav.mobile .toggled-bg .close-btn {
   position: absolute;
   top: var(--margin-top);
   right: 12px;
+  cursor: pointer;
 }
 nav.mobile .toggled-bg ul {
   flex-direction: column;
