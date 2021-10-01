@@ -95,7 +95,7 @@ article figure {
   border-radius: 5px;
 }
 article figure blockquote {
-  margin: auto;
+  margin: 0 0 10px 0;
   max-width: 65ch;
 }
 article figure figcaption {
