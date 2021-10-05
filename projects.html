@@ -98,17 +98,27 @@
   gap: 10px;
 }
 .project-card .project-links a {
+  --border-color: hsl(240deg 5% 40%);
+  --local-background: var(--project-card-bg);
+  --color: var(--font-color);
   padding: 3px 5px;
-  border: 1px solid #61616b;
+  border: 1px solid var(--border-color);
   font-size: 0.87rem;
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  background: var(--local-background);
+  color: var(--color);
 }
 .project-card .project-links a:hover, .project-card .project-links a:focus {
-  background: var(--dark);
-  color: var(--main);
-  border-radius: 5px;
+  --local-background: hsl(213deg 71% 40%);
 }
-.project-card .project-links a:focus {
-  outline: 1px solid var(--main);
+@media (prefers-color-scheme: light) {
+  .project-card .project-links a:hover, .project-card .project-links a:focus {
+    --local-background: var(--secondary);
+    --border-color: var(--background);
+    --color: var(--background);
+  }
 }</style></head>
 
 	<body>

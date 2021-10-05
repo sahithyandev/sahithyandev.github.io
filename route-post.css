@@ -82,6 +82,11 @@ article img.block {
   margin: 0 auto;
   max-height: 600px;
 }
+@media (prefers-color-scheme: light) {
+  article img.block {
+    filter: invert(1);
+  }
+}
 article img.block.latex {
   min-height: 60px;
 }
@@ -93,6 +98,11 @@ article figure {
   padding: 1em 40px;
   background-color: #414148;
   border-radius: 5px;
+}
+@media (prefers-color-scheme: light) {
+  article figure {
+    background-color: #dadadd;
+  }
 }
 article figure blockquote {
   margin: 0 0 10px 0;

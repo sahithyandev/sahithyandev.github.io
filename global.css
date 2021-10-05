@@ -2,11 +2,11 @@
   font-size: 18px;
   font-family: "Inter";
   color-scheme: dark;
-  --dark: #131315;
-  --light: #fffbfe;
+  --background: #131315;
+  --font-color: #fffbfe;
   --main: #faf33e;
   --main-half-opacity: #faf33e70;
-  --secondary: #60a5fa;
+  --secondary: hsl(213deg 94% 68%);
   --secondary-dark: #2563eb;
   --project-card-bg: hsl(240deg 8% 14%);
 }
@@ -16,6 +16,19 @@
   }
 }
 
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+    --background: #fffbfe;
+    --font-color: #131315;
+    --secondary: hsl(213deg 94% 45%);
+    --project-card-bg: hsl(240deg 5% 90%);
+  }
+
+  input {
+    background: #dadadd;
+  }
+}
 * {
   box-sizing: border-box;
 }
@@ -33,8 +46,8 @@ body {
   --body-margin-x: calc((100vw - var(--body-width)) / 2);
   width: var(--body-width);
   margin: 0 auto;
-  color: var(--light);
-  background-color: var(--dark);
+  color: var(--font-color);
+  background-color: var(--background);
 }
 @media (max-width: 640px) {
   body {
@@ -141,6 +154,6 @@ nav.desktop ul .nav--link:hover {
 
 footer {
   margin: 2.25rem 0 1.75rem 0;
-  opacity: 0.5;
+  opacity: 0.7;
   font-size: 0.8rem;
 }
