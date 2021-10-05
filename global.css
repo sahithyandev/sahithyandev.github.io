@@ -21,8 +21,8 @@
     color-scheme: light;
     --background: #fffbfe;
     --font-color: #131315;
-    --secondary: hsl(213deg 94% 45%);
-    --project-card-bg: hsl(240deg 5% 90%);
+    --secondary: hsl(213deg, 94%, 45%);
+    --project-card-bg: hsl(240deg, 5%, 90%);
   }
 
   input {
@@ -110,6 +110,7 @@ nav.mobile .toggled-bg {
   left: 0;
   z-index: 10;
   background: #161618;
+  color: #fffafe;
   opacity: 0;
   transform: translateY(-100%);
   animation: fadeIn 0.3s ease-in-out 0.2s forwards;
