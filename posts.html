@@ -1,136 +1,257 @@
-<!DOCTYPE html><html lang="en"><head>
-		<title>Posts | Sahithyan</title>
-		<meta name="description" content="The website/blog of Sahithyan, A teen front-end developer, a student and a tech enthusiast from Jaffna, Sri Lanka.">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Posts | Sahithyan</title>
+    <meta
+      name="description"
+      content="The website/blog of Sahithyan, A teen front-end developer, a student and a tech enthusiast from Jaffna, Sri Lanka."
+    />
 
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-		<link rel="alternate" href="https://sahithyandev.github.io/feed.xml" type="application/rss+xml" title="RSS feed">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link
+      rel="alternate"
+      href="https://sahithyandev.github.io/feed.xml"
+      type="application/rss+xml"
+      title="RSS feed"
+    />
 
-		<meta name="twitter:card" content="summary_large_image">
-		<meta name="twitter:site" content="@sahithyandev">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@sahithyandev" />
 
-		<meta property="og:type" content="website">
-		<meta property="og:description" content="The website/blog of Sahithyan, A teen front-end developer, a student and a tech enthusiast from Jaffna, Sri Lanka.">
-		<meta property="og:title" content="Posts | Sahithyan">
-		<meta property="og:url" content="sahithyandev.github.io">
-		<meta property="og:site_name" content="Sahithyan">
-		<meta property="og:image" content="https://sahithyandev.github.io/og-image-base.png">
-		<meta property="og:image:alt" content="Sahithyan">
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:description"
+      content="The website/blog of Sahithyan, A teen front-end developer, a student and a tech enthusiast from Jaffna, Sri Lanka."
+    />
+    <meta property="og:title" content="Posts | Sahithyan" />
+    <meta property="og:url" content="sahithyandev.github.io" />
+    <meta property="og:site_name" content="Sahithyan" />
+    <meta
+      property="og:image"
+      content="https://sahithyandev.github.io/og-image-base.png"
+    />
+    <meta property="og:image:alt" content="Sahithyan" />
 
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
 
-		<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" as="style" onload="this.onload=null; this.rel='stylesheet'" id="google-fonts-link">
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap"
+      as="style"
+      onload="this.onload=null; this.rel='stylesheet'"
+      id="google-fonts-link"
+    />
 
-		<noscript>
-			<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" type="text/css" />
-		</noscript>
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+        rel="stylesheet"
+        type="text/css"
+      />
+    </noscript>
 
-		<script data-host="https://microanalytics.io" data-dnt="false" src="https://microanalytics.io/js/script.js" id="ZwSg9rf6GA" async="" defer=""></script>
+    <script
+      data-host="https://microanalytics.io"
+      data-dnt="false"
+      src="https://microanalytics.io/js/script.js"
+      id="ZwSg9rf6GA"
+      async=""
+      defer=""
+    ></script>
 
-		<link rel="stylesheet" href="/global.css">
+    <link rel="stylesheet" href="/global.css" />
 
-		<script>
-			if ("serviceWorker" in navigator) {
-				navigator.serviceWorker
-					.register("/service-worker.js")
-					.catch((error) => {
-						console.error("Error while initializing service worker", error);
-					});
-			}
-		</script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("/service-worker.js")
+          .catch((error) => {
+            console.error("Error while initializing service worker", error);
+          });
+      }
+    </script>
 
-		<script>
-			let pageData;
-			try {
-				pageData = JSON.parse(`{"posts":[{"slug":"a-javascript-quiz","estReadTime":"8 min read","title":"A JavaScript Quiz — Explained","description":"Explanation of an amazing quiz I took an year ago.","tags":["explanation"],"dateCreated":"17 September 2021"},{"slug":"building-xcalc","estReadTime":"7 min read","title":"Story of Building XCalc","description":"Sharing how I built XCalc, an extended calculator.","tags":["experience","project"],"dateCreated":"10 June 2021"},{"slug":"javascript-shorthands","estReadTime":"4 min read","title":"JavaScript Shorthands","description":"Do you write JavaScript a lot? These shorthands might be helpful to you.","tags":["javascript"],"dateCreated":"7 April 2021"},{"slug":"divisibility-rules","estReadTime":"8 min read","title":"Divisibility Rules - An Explanation","description":"How much time would you need to check if a given number is divisible by 2 –15 without a computer? Well, for the first few numbers, you would be so fast. But you will get stuck at 7 or 13 right? Don't worry. After reading this article, you won't. Give it a try.","tags":["mathematics"],"dateCreated":"27 February 2021"}]}`);
-			} catch (e) {
-				console.warn("pageData error", e);
-			}
-		</script>
-	<style>.tags-container {
-  display: flex;
-  justify-content: flex-end;
-  gap: 0.25rem;
-}
-.tags-container .tag::before {
-  content: "#";
-  margin: 1px;
-  opacity: 0.5;
-}
+    <script>
+      let pageData;
+      try {
+        pageData = JSON.parse(
+          `{"posts":[{"slug":"a-javascript-quiz","estReadTime":"8 min read","title":"A JavaScript Quiz — Explained","description":"Explanation of an amazing quiz I took an year ago.","tags":["explanation"],"dateCreated":"17 September 2021"},{"slug":"building-xcalc","estReadTime":"7 min read","title":"Story of Building XCalc","description":"Sharing how I built XCalc, an extended calculator.","tags":["experience","project"],"dateCreated":"10 June 2021"},{"slug":"javascript-shorthands","estReadTime":"4 min read","title":"JavaScript Shorthands","description":"Do you write JavaScript a lot? These shorthands might be helpful to you.","tags":["javascript"],"dateCreated":"7 April 2021"},{"slug":"divisibility-rules","estReadTime":"8 min read","title":"Divisibility Rules - An Explanation","description":"How much time would you need to check if a given number is divisible by 2 –15 without a computer? Well, for the first few numbers, you would be so fast. But you will get stuck at 7 or 13 right? Don't worry. After reading this article, you won't. Give it a try.","tags":["mathematics"],"dateCreated":"27 February 2021"}]}`
+        );
+      } catch (e) {
+        console.warn("pageData error", e);
+      }
+    </script>
+    <style>
+      .tags-container {
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.25rem;
+      }
+      .tags-container .tag::before {
+        content: "#";
+        margin: 1px;
+        opacity: 0.5;
+      }
 
-.posts-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-}
+      .posts-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+      }
 
-.post-card {
-  --post-card-bg: hsl(236, 10%, 25%);
-  --post-card-bg-hover: hsl(240, 10%, 32%);
-}
-.post-card a:hover {
-  text-decoration: underline 3px;
-}
-.post-card .title {
-  margin: 0.2rem 0 0.4rem;
-  font-size: 1.25rem;
-}
-.post-card .description {
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-}
-.post-card .post-released-date {
-  font-size: 0.875rem;
-}
-.post-card .tags-container {
-  justify-content: flex-end;
-}
+      .post-card {
+        --post-card-bg: hsl(236, 10%, 25%);
+        --post-card-bg-hover: hsl(240, 10%, 32%);
+      }
+      .post-card a:hover {
+        text-decoration: underline 3px;
+      }
+      .post-card .title {
+        margin: 0.2rem 0 0.4rem;
+        font-size: 1.25rem;
+      }
+      .post-card .description {
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+      }
+      .post-card .post-released-date {
+        font-size: 0.875rem;
+      }
+      .post-card .tags-container {
+        justify-content: flex-end;
+      }
 
-.post-card {
-  display: none;
-}
+      .post-card {
+        display: none;
+      }
 
-.show {
-  display: block;
-}
+      .show {
+        display: block;
+      }
 
-.search-container {
-  margin: 12px 0 36px;
-}
-.search-container input[type=text] {
-  border: none;
-  width: 100%;
-  padding: 8px 16px;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  font-family: Inter, ui-sans-serif, sans-serif;
-}
-.search-container input[type=text]::placeholder {
-  opacity: 0.8;
-  color: var(--font-color);
-  user-select: none;
-}
-.search-container input[type=text]:disabled {
-  margin-bottom: 8px;
-  background: #272727;
-  cursor: not-allowed;
-}
-.search-container input[type=text]:disabled::placeholder {
-  color: #797979;
-}
-.search-container noscript {
-  font-size: 0.9em;
-}</style></head>
+      .search-container {
+        margin: 12px 0 36px;
+      }
+      .search-container input[type="text"] {
+        border: none;
+        width: 100%;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        font-family: Inter, ui-sans-serif, sans-serif;
+      }
+      .search-container input[type="text"]::placeholder {
+        opacity: 0.8;
+        color: var(--font-color);
+        user-select: none;
+      }
+      .search-container input[type="text"]:disabled {
+        margin-bottom: 8px;
+        background: #272727;
+        cursor: not-allowed;
+      }
+      .search-container input[type="text"]:disabled::placeholder {
+        color: #797979;
+      }
+      .search-container noscript {
+        font-size: 0.9em;
+      }
+    </style>
+  </head>
 
-	<body>
-		<div id="root"><nav class="desktop"><a href="/" class="nav--logo " data-is-internal="">sahithyan</a><ul><li><a href="/projects" class="nav--link " data-is-internal="">Projects</a></li><li><a href="/posts" class="nav--link " data-is-internal="">Posts</a></li><li><a href="/about" class="nav--link " data-is-internal="">About</a></li></ul></nav><main><h1>Posts</h1><div class="search-container"><input type="text" placeholder="Search Posts" id="posts-search"><noscript>Search can't work without JavaScript.</noscript></div><div class="posts-container"><div class="post-card show" data-slug="a-javascript-quiz"><span class="post-released-date">17 September 2021</span><a href="/post/a-javascript-quiz" data-is-internal="" class=" "><h3 class="title">A JavaScript Quiz — Explained</h3></a><p class="description">Explanation of an amazing quiz I took an year ago.</p><div class="tags-container"><span class="tag">explanation</span></div></div><div class="post-card show" data-slug="building-xcalc"><span class="post-released-date">10 June 2021</span><a href="/post/building-xcalc" data-is-internal="" class=" "><h3 class="title">Story of Building XCalc</h3></a><p class="description">Sharing how I built XCalc, an extended calculator.</p><div class="tags-container"><span class="tag">experience</span><span class="tag">project</span></div></div><div class="post-card show" data-slug="javascript-shorthands"><span class="post-released-date">7 April 2021</span><a href="/post/javascript-shorthands" data-is-internal="" class=" "><h3 class="title">JavaScript Shorthands</h3></a><p class="description">Do you write JavaScript a lot? These shorthands might be helpful to you.</p><div class="tags-container"><span class="tag">javascript</span></div></div><div class="post-card show" data-slug="divisibility-rules"><span class="post-released-date">27 February 2021</span><a href="/post/divisibility-rules" data-is-internal="" class=" "><h3 class="title">Divisibility Rules - An Explanation</h3></a><p class="description">How much time would you need to check if a given number is divisible by 2 –15 without a computer? Well, for the first few numbers, you would be so fast. But you will get stuck at 7 or 13 right? Don't worry. After reading this article, you won't. Give it a try.</p><div class="tags-container"><span class="tag">mathematics</span></div></div></div></main><footer>© Sahithyan 2021</footer></div>
-		<script src="/lib-preact.js"></script>
-		<script id="main-script" defer="" src="/posts.js"></script>
-	
-
-</body></html>
+  <body>
+    <div id="root">
+      <nav class="desktop">
+        <a href="/" class="nav--logo" data-is-internal="">sahithyan</a>
+        <ul>
+          <li>
+            <a href="/projects" class="nav--link" data-is-internal=""
+              >Projects</a
+            >
+          </li>
+          <li>
+            <a href="/posts" class="nav--link" data-is-internal="">Posts</a>
+          </li>
+          <li>
+            <a href="/about" class="nav--link" data-is-internal="">About</a>
+          </li>
+        </ul>
+      </nav>
+      <main>
+        <h1>Posts</h1>
+        <div class="search-container">
+          <input
+            type="text"
+            placeholder="Search Posts"
+            id="posts-search"
+          /><noscript>Search can't work without JavaScript.</noscript>
+        </div>
+        <div class="posts-container">
+          <div class="post-card show" data-slug="a-javascript-quiz">
+            <span class="post-released-date">17 September 2021</span
+            ><a href="/post/a-javascript-quiz" data-is-internal="" class=""
+              ><h3 class="title">A JavaScript Quiz — Explained</h3></a
+            >
+            <p class="description">
+              Explanation of an amazing quiz I took an year ago.
+            </p>
+            <div class="tags-container">
+              <span class="tag">explanation</span>
+            </div>
+          </div>
+          <div class="post-card show" data-slug="building-xcalc">
+            <span class="post-released-date">10 June 2021</span
+            ><a href="/post/building-xcalc" data-is-internal="" class=""
+              ><h3 class="title">Story of Building XCalc</h3></a
+            >
+            <p class="description">
+              Sharing how I built XCalc, an extended calculator.
+            </p>
+            <div class="tags-container">
+              <span class="tag">experience</span
+              ><span class="tag">project</span>
+            </div>
+          </div>
+          <div class="post-card show" data-slug="javascript-shorthands">
+            <span class="post-released-date">7 April 2021</span
+            ><a href="/post/javascript-shorthands" data-is-internal="" class=""
+              ><h3 class="title">JavaScript Shorthands</h3></a
+            >
+            <p class="description">
+              Do you write JavaScript a lot? These shorthands might be helpful
+              to you.
+            </p>
+            <div class="tags-container">
+              <span class="tag">javascript</span>
+            </div>
+          </div>
+          <div class="post-card show" data-slug="divisibility-rules">
+            <span class="post-released-date">27 February 2021</span
+            ><a href="/post/divisibility-rules" data-is-internal="" class=""
+              ><h3 class="title">Divisibility Rules - An Explanation</h3></a
+            >
+            <p class="description">
+              How much time would you need to check if a given number is
+              divisible by 2 –15 without a computer? Well, for the first few
+              numbers, you would be so fast. But you will get stuck at 7 or 13
+              right? Don't worry. After reading this article, you won't. Give it
+              a try.
+            </p>
+            <div class="tags-container">
+              <span class="tag">mathematics</span>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer>© Sahithyan 2021</footer>
+    </div>
+    <script src="/lib-preact.js"></script>
+    <script id="main-script" defer="" src="/posts.js"></script>
+  </body>
+</html>

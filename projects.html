@@ -1,130 +1,304 @@
-<!DOCTYPE html><html lang="en"><head>
-		<title>Projects | Sahithyan</title>
-		<meta name="description" content="The website/blog of Sahithyan, A teen front-end developer, a student and a tech enthusiast from Jaffna, Sri Lanka.">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Projects | Sahithyan</title>
+    <meta
+      name="description"
+      content="The website/blog of Sahithyan, A teen front-end developer, a student and a tech enthusiast from Jaffna, Sri Lanka."
+    />
 
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-		<link rel="alternate" href="https://sahithyandev.github.io/feed.xml" type="application/rss+xml" title="RSS feed">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link
+      rel="alternate"
+      href="https://sahithyandev.github.io/feed.xml"
+      type="application/rss+xml"
+      title="RSS feed"
+    />
 
-		<meta name="twitter:card" content="summary_large_image">
-		<meta name="twitter:site" content="@sahithyandev">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@sahithyandev" />
 
-		<meta property="og:type" content="website">
-		<meta property="og:description" content="The website/blog of Sahithyan, A teen front-end developer, a student and a tech enthusiast from Jaffna, Sri Lanka.">
-		<meta property="og:title" content="Projects | Sahithyan">
-		<meta property="og:url" content="sahithyandev.github.io">
-		<meta property="og:site_name" content="Sahithyan">
-		<meta property="og:image" content="https://sahithyandev.github.io/og-image-base.png">
-		<meta property="og:image:alt" content="Sahithyan">
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:description"
+      content="The website/blog of Sahithyan, A teen front-end developer, a student and a tech enthusiast from Jaffna, Sri Lanka."
+    />
+    <meta property="og:title" content="Projects | Sahithyan" />
+    <meta property="og:url" content="sahithyandev.github.io" />
+    <meta property="og:site_name" content="Sahithyan" />
+    <meta
+      property="og:image"
+      content="https://sahithyandev.github.io/og-image-base.png"
+    />
+    <meta property="og:image:alt" content="Sahithyan" />
 
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
 
-		<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" as="style" onload="this.onload=null; this.rel='stylesheet'" id="google-fonts-link">
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap"
+      as="style"
+      onload="this.onload=null; this.rel='stylesheet'"
+      id="google-fonts-link"
+    />
 
-		<noscript>
-			<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" type="text/css" />
-		</noscript>
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+        rel="stylesheet"
+        type="text/css"
+      />
+    </noscript>
 
-		<script data-host="https://microanalytics.io" data-dnt="false" src="https://microanalytics.io/js/script.js" id="ZwSg9rf6GA" async="" defer=""></script>
+    <script
+      data-host="https://microanalytics.io"
+      data-dnt="false"
+      src="https://microanalytics.io/js/script.js"
+      id="ZwSg9rf6GA"
+      async=""
+      defer=""
+    ></script>
 
-		<link rel="stylesheet" href="/global.css">
+    <link rel="stylesheet" href="/global.css" />
 
-		<script>
-			if ("serviceWorker" in navigator) {
-				navigator.serviceWorker
-					.register("/service-worker.js")
-					.catch((error) => {
-						console.error("Error while initializing service worker", error);
-					});
-			}
-		</script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("/service-worker.js")
+          .catch((error) => {
+            console.error("Error while initializing service worker", error);
+          });
+      }
+    </script>
 
-		<script>
-			let pageData;
-			try {
-				pageData = JSON.parse(`%PAGE_DATA%`);
-			} catch (e) {
-				console.warn("pageData error", e);
-			}
-		</script>
-	<style>.projects-container {
-  --column-count: 3;
-  margin-top: 28px;
-  display: grid;
-  grid-template-columns: repeat(var(--column-count), 1fr);
-  gap: 16px 24px;
-}
-@media (max-width: 840px) {
-  .projects-container {
-    --column-count: 2;
-  }
-}
-@media (min-width: 640px) {
-  .projects-container {
-    position: relative;
-    left: -10%;
-    width: 120%;
-  }
-}
-@media (max-width: 640px) {
-  .projects-container {
-    --column-count: 1;
-  }
-}
+    <script>
+      let pageData;
+      try {
+        pageData = JSON.parse(`%PAGE_DATA%`);
+      } catch (e) {
+        console.warn("pageData error", e);
+      }
+    </script>
+    <style>
+      .projects-container {
+        --column-count: 3;
+        margin-top: 28px;
+        display: grid;
+        grid-template-columns: repeat(var(--column-count), 1fr);
+        gap: 16px 24px;
+      }
+      @media (max-width: 840px) {
+        .projects-container {
+          --column-count: 2;
+        }
+      }
+      @media (min-width: 640px) {
+        .projects-container {
+          position: relative;
+          left: -10%;
+          width: 120%;
+        }
+      }
+      @media (max-width: 640px) {
+        .projects-container {
+          --column-count: 1;
+        }
+      }
 
-.project-card {
-  padding: 18px 22px;
-  border-radius: 5px;
-  font-size: 0.9rem;
-  background-color: var(--project-card-bg);
-}
-.project-card .project-name {
-  margin-top: 0;
-  margin-bottom: 20px;
-  font-size: 1.2rem;
-  color: var(--secondary);
-}
-.project-card .project-description {
-  max-width: 90%;
-  margin-bottom: 18px;
-}
-.project-card .project-links {
-  display: flex;
-  gap: 10px;
-}
-.project-card .project-links a {
-  --border-color: hsl(240deg 5% 40%);
-  --local-background: var(--project-card-bg);
-  --color: var(--font-color);
-  padding: 3px 5px;
-  border: 1px solid var(--border-color);
-  font-size: 0.87rem;
-  transition-property: background-color, border-color, color, fill, stroke;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-  background: var(--local-background);
-  color: var(--color);
-}
-.project-card .project-links a:hover, .project-card .project-links a:focus {
-  --local-background: hsl(213deg 71% 40%);
-}
-@media (prefers-color-scheme: light) {
-  .project-card .project-links a:hover, .project-card .project-links a:focus {
-    --local-background: var(--secondary);
-    --border-color: var(--background);
-    --color: var(--background);
-  }
-}</style></head>
+      .project-card {
+        padding: 18px 22px;
+        border-radius: 5px;
+        font-size: 0.9rem;
+        background-color: var(--project-card-bg);
+      }
+      .project-card .project-name {
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+        color: var(--secondary);
+      }
+      .project-card .project-description {
+        max-width: 90%;
+        margin-bottom: 18px;
+      }
+      .project-card .project-links {
+        display: flex;
+        gap: 10px;
+      }
+      .project-card .project-links a {
+        --border-color: hsl(240deg 5% 40%);
+        --local-background: var(--project-card-bg);
+        --color: var(--font-color);
+        padding: 3px 5px;
+        border: 1px solid var(--border-color);
+        font-size: 0.87rem;
+        transition-property: background-color, border-color, color, fill, stroke;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
+        background: var(--local-background);
+        color: var(--color);
+      }
+      .project-card .project-links a:hover,
+      .project-card .project-links a:focus {
+        --local-background: hsl(213deg 71% 40%);
+      }
+      @media (prefers-color-scheme: light) {
+        .project-card .project-links a:hover,
+        .project-card .project-links a:focus {
+          --local-background: var(--secondary);
+          --border-color: var(--background);
+          --color: var(--background);
+        }
+      }
+    </style>
+  </head>
 
-	<body>
-		<div id="root"><nav class="desktop"><a href="/" class="nav--logo " data-is-internal="">sahithyan</a><ul><li><a href="/projects" class="nav--link " data-is-internal="">Projects</a></li><li><a href="/posts" class="nav--link " data-is-internal="">Posts</a></li><li><a href="/about" class="nav--link " data-is-internal="">About</a></li></ul></nav><main><h1>Projects</h1><p>Here are the projects I worked on recently.</p><section class="projects-container"><div class="project-card"><h2 class="project-name">Gallery Of JE</h2><p class="project-description">A website full of high-quality retouched photos by Janoshan, one of my friends.</p><div class="project-links"><a href="https://github.com/sahithyandev/gallery-of-je" target="_blank" rel="noopener noreferrer" class=" styled-link">Source</a><a href="https://gallery-of-je.vercel.app" target="_blank" rel="noopener noreferrer" class=" styled-link">Demo</a></div></div><div class="project-card"><h2 class="project-name">YouTubeDownloader Bot</h2><p class="project-description">A Viber bot to download YouTube videos easily.</p><div class="project-links"><a href="https://github.com/sahithyandev/youtube-downloader-bot" target="_blank" rel="noopener noreferrer" class=" styled-link">Source</a><a href="https://youtube-downloader-viber-bot.herokuapp.com" target="_blank" rel="noopener noreferrer" class=" styled-link">Demo</a></div></div><div class="project-card"><h2 class="project-name">math-api</h2><p class="project-description">math.now.sh ported as a NPM package.</p><div class="project-links"><a href="https://github.com/sahithyandev/math-api" target="_blank" rel="noopener noreferrer" class=" styled-link">Source</a><a href="https://www.npmjs.com/package/math-api" target="_blank" rel="noopener noreferrer" class=" styled-link">Demo</a></div></div><div class="project-card"><h2 class="project-name">XCalc</h2><p class="project-description">An extended calculator. A calculator which has functions that a pre-installed one doesn't. Like gcm, lcd, is-prime and more. Available on Google Play Store as well as a website.</p><div class="project-links"><a href="https://github.com/sahithyandev/xcalc" target="_blank" rel="noopener noreferrer" class=" styled-link">Source</a><a href="https://x-calc.vercel.app" target="_blank" rel="noopener noreferrer" class=" styled-link">Demo</a><a href="/post/building-xcalc" data-is-internal="" class=" styled-link">Write Up</a></div></div><div class="project-card"><h2 class="project-name">Password Tester</h2><p class="project-description">A minimal password strength checker.</p><div class="project-links"><a href="https://github.com/sahithyandev/password-tester" target="_blank" rel="noopener noreferrer" class=" styled-link">Source</a><a href="https://password-tester.vercel.app" target="_blank" rel="noopener noreferrer" class=" styled-link">Demo</a></div></div></section></main><footer>© Sahithyan 2021</footer></div>
-		<script src="/lib-preact.js"></script>
-		<script id="main-script" defer="" src="/projects.js"></script>
-	
-
-</body></html>
+  <body>
+    <div id="root">
+      <nav class="desktop">
+        <a href="/" class="nav--logo" data-is-internal="">sahithyan</a>
+        <ul>
+          <li>
+            <a href="/projects" class="nav--link" data-is-internal=""
+              >Projects</a
+            >
+          </li>
+          <li>
+            <a href="/posts" class="nav--link" data-is-internal="">Posts</a>
+          </li>
+          <li>
+            <a href="/about" class="nav--link" data-is-internal="">About</a>
+          </li>
+        </ul>
+      </nav>
+      <main>
+        <h1>Projects</h1>
+        <p>Here are the projects I worked on recently.</p>
+        <section class="projects-container">
+          <div class="project-card">
+            <h2 class="project-name">Gallery Of JE</h2>
+            <p class="project-description">
+              A website full of high-quality retouched photos by Janoshan, one
+              of my friends.
+            </p>
+            <div class="project-links">
+              <a
+                href="https://github.com/sahithyandev/gallery-of-je"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="styled-link"
+                >Source</a
+              ><a
+                href="https://gallery-of-je.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="styled-link"
+                >Demo</a
+              >
+            </div>
+          </div>
+          <div class="project-card">
+            <h2 class="project-name">YouTubeDownloader Bot</h2>
+            <p class="project-description">
+              A Viber bot to download YouTube videos easily.
+            </p>
+            <div class="project-links">
+              <a
+                href="https://github.com/sahithyandev/youtube-downloader-bot"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="styled-link"
+                >Source</a
+              ><a
+                href="https://youtube-downloader-viber-bot.herokuapp.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="styled-link"
+                >Demo</a
+              >
+            </div>
+          </div>
+          <div class="project-card">
+            <h2 class="project-name">math-api</h2>
+            <p class="project-description">
+              math.now.sh ported as a NPM package.
+            </p>
+            <div class="project-links">
+              <a
+                href="https://github.com/sahithyandev/math-api"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="styled-link"
+                >Source</a
+              ><a
+                href="https://www.npmjs.com/package/math-api"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="styled-link"
+                >Demo</a
+              >
+            </div>
+          </div>
+          <div class="project-card">
+            <h2 class="project-name">XCalc</h2>
+            <p class="project-description">
+              An extended calculator. A calculator which has functions that a
+              pre-installed one doesn't. Like gcm, lcd, is-prime and more.
+              Available on Google Play Store as well as a website.
+            </p>
+            <div class="project-links">
+              <a
+                href="https://github.com/sahithyandev/xcalc"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="styled-link"
+                >Source</a
+              ><a
+                href="https://x-calc.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="styled-link"
+                >Demo</a
+              ><a
+                href="/post/building-xcalc"
+                data-is-internal=""
+                class="styled-link"
+                >Write Up</a
+              >
+            </div>
+          </div>
+          <div class="project-card">
+            <h2 class="project-name">Password Tester</h2>
+            <p class="project-description">
+              A minimal password strength checker.
+            </p>
+            <div class="project-links">
+              <a
+                href="https://github.com/sahithyandev/password-tester"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="styled-link"
+                >Source</a
+              ><a
+                href="https://password-tester.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="styled-link"
+                >Demo</a
+              >
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer>© Sahithyan 2021</footer>
+    </div>
+    <script src="/lib-preact.js"></script>
+    <script id="main-script" defer="" src="/projects.js"></script>
+  </body>
+</html>
