@@ -109,18 +109,22 @@
 
   <body>
     <div id="root">
-      <nav class="desktop">
-        <a href="/" class="nav--logo" data-is-internal="">sahithyan</a>
+      <nav>
+        <a href="/" class="nav--logo" data-is-internal="">sahithyan</a
+        ><input type="checkbox" id="menu-toggle" /><label
+          for="menu-toggle"
+          class="hamburger-icon"
+        ></label>
         <ul>
-          <li>
+          <li data-animation-delay-id="0">
             <a href="/projects" class="nav--link" data-is-internal=""
               >Projects</a
             >
           </li>
-          <li>
+          <li data-animation-delay-id="1">
             <a href="/posts" class="nav--link" data-is-internal="">Posts</a>
           </li>
-          <li>
+          <li data-animation-delay-id="2">
             <a href="/about" class="nav--link" data-is-internal="">About</a>
           </li>
         </ul>
@@ -128,7 +132,5 @@
       <div id="main"><h1>$&gt;&gt; paGe n0t found</h1></div>
       <footer>© Sahithyan 2021</footer>
     </div>
-    <script src="/lib-preact.js"></script>
-    <script id="main-script" defer="" src="/404.js"></script>
   </body>
 </html>

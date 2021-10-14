@@ -3,10 +3,11 @@
   font-family: "Inter";
   color-scheme: dark;
   --background: #131315;
+  --secondary-background: hsl(240, 5%, 18%);
   --font-color: #fffbfe;
   --main: #faf33e;
   --main-half-opacity: #faf33e70;
-  --secondary: hsl(213deg 94% 68%);
+  --secondary: hsl(213deg, 94%, 68%);
   --secondary-dark: #2563eb;
   --project-card-bg: hsl(240deg 8% 14%);
 }
@@ -20,6 +21,7 @@
   :root {
     color-scheme: light;
     --background: #fffbfe;
+    --secondary-background: hsl(315deg, 2%, 78%);
     --font-color: #131315;
     --secondary: hsl(213deg, 94%, 45%);
     --project-card-bg: hsl(240deg, 5%, 90%);
@@ -70,87 +72,98 @@ nav {
   justify-content: space-between;
   align-items: center;
   margin: 0.5rem 0 1rem;
+  min-height: 50px;
 }
 nav .nav--logo {
   font-size: 1.2rem;
   font-weight: bold;
   text-transform: uppercase;
 }
+nav #menu-toggle,
+nav .hamburger-icon {
+  display: none;
+}
 nav ul {
   list-style-type: none;
   display: flex;
-}
-
-@keyframes fadeIn {
-  to {
-    transform: translate(0);
-    opacity: 1;
-  }
-}
-@keyframes horizontalFadeOut {
-  to {
-    transform: translateX(-100%);
-  }
-}
-@keyframes verticalFadeOut {
-  to {
-    opacity: 0;
-    transform: translateY(-100%);
-  }
-}
-nav.mobile {
-  --margin-top: 1.5rem;
-  margin-top: var(--margin-top);
-}
-nav.mobile .toggled-bg {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  z-index: 10;
-  background: #161618;
-  color: #fffafe;
-  opacity: 0;
-  transform: translateY(-100%);
-  animation: fadeIn 0.3s ease-in-out 0.2s forwards;
-}
-nav.mobile .toggled-bg.hide {
-  opacity: 1;
-  transform: translate(0);
-  animation: verticalFadeOut 0.3s ease-in-out 1s forwards;
-}
-nav.mobile .toggled-bg .close-btn {
-  position: absolute;
-  top: var(--margin-top);
-  right: 12px;
-  cursor: pointer;
-}
-nav.mobile .toggled-bg ul {
-  flex-direction: column;
-  font-size: 2rem;
-  gap: 28px;
-  font-weight: 500;
-  margin-top: 200px;
-}
-nav.mobile .toggled-bg ul li {
-  transform: translate(-100%);
-  animation: fadeIn 0.5s ease-in-out var(--animation-delay) forwards;
-}
-nav.mobile .toggled-bg ul li.hide {
-  transform: translate(0);
-  animation: horizontalFadeOut 0.5s ease-in-out var(--animation-delay) forwards;
-}
-
-nav.desktop ul {
   gap: 1rem;
 }
-nav.desktop ul .nav--link {
+nav ul li {
   opacity: 0.6;
   transition: opacity cubic-bezier(0.4, 0, 0.2, 1) 150ms;
 }
-nav.desktop ul .nav--link:hover {
+nav ul li:hover {
   opacity: 1;
+}
+@media (max-width: 640px) {
+  nav {
+    margin-top: 1rem;
+  }
+  nav .hamburger-icon {
+    margin-left: auto;
+    display: block;
+    z-index: 2;
+  }
+  nav .hamburger-icon::before {
+    transform: translateY(-4px);
+  }
+  nav .hamburger-icon::after {
+    transform: translateY(4px);
+  }
+  nav .hamburger-icon::before, nav .hamburger-icon::after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 25px;
+    background: var(--font-color);
+    cursor: pointer;
+    transform-origin: center;
+    transition: transform 0.4s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  }
+  nav ul {
+    flex-direction: column;
+    gap: 1.6rem;
+    margin: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    padding: 20vh 24px;
+    color: var(--font-color);
+    background-color: var(--secondary-background);
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  nav ul li {
+    font-weight: 500;
+    opacity: 1;
+    font-size: 2rem;
+    transform: translateX(-50%);
+    transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  nav ul li[data-animation-delay-id="0"] {
+    transition-delay: 0.6s;
+  }
+  nav ul li[data-animation-delay-id="1"] {
+    transition-delay: 0.7s;
+  }
+  nav ul li[data-animation-delay-id="2"] {
+    transition-delay: 0.8s;
+  }
+  nav #menu-toggle:checked ~ ul {
+    transform: translateX(0);
+  }
+  nav #menu-toggle:checked ~ ul li {
+    transform: translateX(0);
+  }
+  nav #menu-toggle:checked ~ .hamburger-icon::before {
+    transform: rotate(45deg) translateY(50%);
+  }
+  nav #menu-toggle:checked ~ .hamburger-icon::after {
+    transform: rotate(-45deg) translateY(-50%);
+  }
 }
 
 footer {
