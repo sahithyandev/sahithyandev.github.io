@@ -2,8 +2,8 @@
   font-size: 18px;
   font-family: "Inter";
   color-scheme: dark;
-  --background: #131315;
-  --secondary-background: hsl(240, 5%, 18%);
+  --background: hsl(240, 5%, 8%);
+  --secondary-background: hsla(240, 5%, 18%, 0.6);
   --font-color: #fffbfe;
   --main: #faf33e;
   --main-half-opacity: #faf33e70;
@@ -21,7 +21,7 @@
   :root {
     color-scheme: light;
     --background: #fffbfe;
-    --secondary-background: hsl(315deg, 2%, 78%);
+    --secondary-background: hsla(315deg, 2%, 78%, 0.7);
     --font-color: #131315;
     --secondary: hsl(213deg, 94%, 45%);
     --project-card-bg: hsl(240deg, 5%, 90%);
@@ -133,6 +133,7 @@ nav ul li:hover {
     padding: 20vh 24px;
     color: var(--font-color);
     background-color: var(--secondary-background);
+    backdrop-filter: blur(10px);
     transform: translateX(-100%);
     transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
   }
