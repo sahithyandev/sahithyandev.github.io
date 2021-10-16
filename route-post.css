@@ -65,6 +65,9 @@ article {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
+article p strong {
+  color: var(--main);
+}
 article .linkable-head .hashtag {
   margin-right: 0.5rem;
   opacity: 0.6;
