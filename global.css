@@ -1,3 +1,8 @@
+@keyframes comeDownFromTop {
+  to {
+    transform: translateY(0px);
+  }
+}
 :root {
   font-size: 18px;
   font-family: "Inter";
@@ -95,6 +100,24 @@ nav ul li {
 nav ul li:hover {
   opacity: 1;
 }
+@media (min-width: 640px) {
+  nav ul li {
+    transform: translateY(-60px);
+    animation-name: comeDownFromTop;
+    animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+  }
+  nav ul li[data-animation-delay-id="0"] {
+    animation-delay: 0.1s;
+  }
+  nav ul li[data-animation-delay-id="1"] {
+    animation-delay: 0.18s;
+  }
+  nav ul li[data-animation-delay-id="2"] {
+    animation-delay: 0.26s;
+  }
+}
 @media (max-width: 640px) {
   nav {
     margin-top: 1rem;
@@ -141,7 +164,7 @@ nav ul li:hover {
     font-weight: 500;
     opacity: 1;
     font-size: 2rem;
-    transform: translateX(-50%);
+    transform: translateY(0) translateX(-50%);
     transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
   }
   nav ul li[data-animation-delay-id="0"] {
