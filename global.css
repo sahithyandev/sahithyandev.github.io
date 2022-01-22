@@ -7,7 +7,7 @@
   font-size: 18px;
   font-family: "Inter";
   color-scheme: dark;
-  --background: hsl(240, 5%, 8%);
+  --background: hsl(300deg 3% 12%);
   --secondary-background: hsla(240, 5%, 18%, 0.6);
   --font-color: #fffbfe;
   --main: #faf33e;
