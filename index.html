@@ -146,6 +146,27 @@
           opacity: 0;
         }
       }
+      @keyframes topBannerDropin {
+        from {
+          transform: translateY(-100%);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
+      .top-banner {
+        text-align: center;
+        padding: 5px 0;
+        background: #000b1f;
+        color: #e6eeff;
+        animation: topBannerDropin 0.3s ease-in-out 10s;
+      }
+
+      .top-banner a {
+        color: #adb4ff;
+        text-decoration: underline;
+      }
+
       .me-banner {
         display: grid;
         grid-template-columns: auto minmax(100px, 20%);
@@ -219,6 +240,7 @@
 
   <body>
     <div id="root">
+      <div class="top-banner">I support Ukraine 🇺🇦</div>
       <nav>
         <div></div>
         <input type="checkbox" id="menu-toggle" /><label
