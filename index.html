@@ -156,10 +156,12 @@
       }
       .top-banner {
         text-align: center;
+        margin: 0 calc(-1 * var(--body-margin-x));
         padding: 5px 0;
         background: #000b1f;
         color: #e6eeff;
-        animation: topBannerDropin 0.3s ease-in-out 10s;
+        transform: translateY(-100%);
+        animation: topBannerDropin 0.3s ease-in-out 10s forwards;
       }
 
       .top-banner a {
