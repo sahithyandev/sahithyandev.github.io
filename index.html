@@ -81,7 +81,7 @@
       let pageData;
       try {
         pageData = JSON.parse(
-          `{"latestPosts":[{"slug":"the-is-odd-npm-package-meme","estReadTime":"2 min read","title":"The is-odd NPM package","tags":["meme"],"dateCreated":"4 November 2021"},{"slug":"a-javascript-quiz","estReadTime":"8 min read","title":"A JavaScript Quiz — Explained","description":"Explanation of an amazing quiz I took an year ago.","tags":["explanation"],"dateCreated":"17 September 2021"},{"slug":"building-xcalc","estReadTime":"7 min read","title":"Story of Building XCalc","description":"Sharing how I built XCalc, an extended calculator.","tags":["experience","project"],"dateCreated":"10 June 2021"},{"slug":"javascript-shorthands","estReadTime":"4 min read","title":"JavaScript Shorthands","description":"Do you write JavaScript a lot? These shorthands might be helpful to you.","tags":["javascript"],"dateCreated":"7 April 2021"}]}`
+          `{"latestPosts":[{"slug":"the-is-odd-npm-package-meme","estReadTime":"2 min read","title":"The is-odd NPM package","tags":["meme"],"dateCreated":"4 November 2021","lastUpdatedOn":"14 March 2022"},{"slug":"a-javascript-quiz","estReadTime":"8 min read","title":"A JavaScript Quiz — Explained","description":"Explanation of an amazing quiz I took an year ago.","tags":["explanation"],"dateCreated":"17 September 2021","lastUpdatedOn":"14 March 2022"},{"slug":"building-xcalc","estReadTime":"7 min read","title":"Story of Building XCalc","description":"Sharing how I built XCalc, an extended calculator.","tags":["experience","project"],"dateCreated":"10 June 2021","lastUpdatedOn":"14 March 2022"},{"slug":"javascript-shorthands","estReadTime":"4 min read","title":"JavaScript Shorthands","description":"Do you write JavaScript a lot? These shorthands might be helpful to you.","tags":["javascript"],"dateCreated":"7 April 2021","lastUpdatedOn":"14 March 2022"}]}`
         );
       } catch (e) {
         console.warn("pageData error", e);
@@ -251,7 +251,7 @@
         <img
           alt="🇺🇦"
           src="https://abs-0.twimg.com/emoji/v2/svg/1f1fa-1f1e6.svg"
-          draggable="true"
+          draggable="false"
           class="ua-flag"
         />
       </div>
