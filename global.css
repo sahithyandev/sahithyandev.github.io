@@ -72,6 +72,33 @@ p {
   max-width: 70ch;
 }
 
+@keyframes topBannerDropin {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.top-banner {
+  font-size: 0.95rem;
+  text-align: center;
+  margin: 0 calc(-1 * var(--body-margin-x));
+  padding: 5px 0;
+  background: #000b1f;
+  color: #e6eeff;
+  transform: translateY(-110%);
+  animation: topBannerDropin 0.3s ease-in-out 10s forwards;
+}
+.top-banner .ua-flag {
+  height: 1.2rem;
+  vertical-align: middle;
+}
+.top-banner a {
+  color: #adb4ff;
+  text-decoration: underline;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
