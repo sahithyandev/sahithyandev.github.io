@@ -119,6 +119,7 @@ nav ul {
   list-style-type: none;
   display: flex;
   gap: 1rem;
+  font-weight: 500;
 }
 nav ul li {
   opacity: 0.6;
