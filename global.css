@@ -88,7 +88,7 @@ p {
   background: #000b1f;
   color: #e6eeff;
   transform: translateY(-110%);
-  animation: topBannerDropin 0.3s ease-in-out 10s forwards;
+  animation: topBannerDropin 0.3s ease-in-out 5s forwards;
 }
 .top-banner .ua-flag {
   height: 1.2rem;
@@ -130,7 +130,7 @@ nav ul li:hover {
 }
 @media (min-width: 640px) {
   nav ul li {
-    transform: translateY(-60px);
+    transform: translateY(-120px);
     animation-name: comeDownFromTop;
     animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
     animation-duration: 0.2s;
