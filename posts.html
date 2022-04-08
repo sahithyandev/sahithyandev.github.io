@@ -65,8 +65,6 @@
       defer=""
     ></script>
 
-    <link rel="stylesheet" href="/global.css" />
-
     <script>
       if ("serviceWorker" in navigator) {
         navigator.serviceWorker
@@ -87,96 +85,20 @@
         console.warn("pageData error", e);
       }
     </script>
-    <style>
-      .tags-container {
-        display: flex;
-        justify-content: flex-end;
-        gap: 0.25rem;
-      }
-      .tags-container .tag::before {
-        content: "#";
-        margin: 1px;
-        opacity: 0.5;
-      }
-
-      .posts-container {
-        display: flex;
-        flex-direction: column;
-        gap: 1.6rem;
-      }
-
-      .post-card {
-        --post-card-bg: hsl(236, 10%, 25%);
-        --post-card-bg-hover: hsl(240, 10%, 32%);
-      }
-      .post-card a:hover {
-        text-decoration: underline 3px;
-      }
-      .post-card .title {
-        margin: 0.2rem 0 0.4rem;
-        font-size: 1.25rem;
-      }
-      .post-card .description {
-        margin-top: 0.5rem;
-        font-size: 0.9rem;
-      }
-      .post-card .post-released-date {
-        font-size: 0.875rem;
-      }
-      .post-card .tags-container {
-        justify-content: flex-end;
-      }
-
-      .post-card {
-        display: none;
-      }
-
-      .show {
-        display: block;
-      }
-
-      .search-container {
-        margin: 12px 0 36px;
-      }
-      .search-container input[type="text"] {
-        border: none;
-        width: 100%;
-        padding: 8px 16px;
-        border-radius: 4px;
-        font-size: 0.9rem;
-        font-family: Inter, ui-sans-serif, sans-serif;
-      }
-      .search-container input[type="text"]::placeholder {
-        opacity: 0.8;
-        color: var(--font-color);
-        user-select: none;
-      }
-      .search-container input[type="text"]:disabled {
-        margin-bottom: 8px;
-        background: #272727;
-        cursor: not-allowed;
-      }
-      .search-container input[type="text"]:disabled::placeholder {
-        color: #797979;
-      }
-      .search-container noscript {
-        font-size: 0.9em;
-      }
-    </style>
   </head>
 
   <body>
     <div id="root">
       <div class="top-banner">
-        I support Ukraine
-        <img
-          alt="🇺🇦"
-          src="https://abs-0.twimg.com/emoji/v2/svg/1f1fa-1f1e6.svg"
-          draggable="false"
-          class="ua-flag"
-          width="36"
-          height="36"
-        />
+        To know about what the fuck happened to this site, visit the
+        <a
+          href="https://css-naked-day.github.io"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="styled-link"
+          >Annual CSS Naked Day</a
+        >
+        website.
       </div>
       <nav>
         <a href="/" class="nav--logo" data-is-internal="">sahithyan</a
