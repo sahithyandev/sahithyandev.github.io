@@ -65,6 +65,8 @@
       defer=""
     ></script>
 
+    <link rel="stylesheet" href="/global.css" />
+
     <script>
       if ("serviceWorker" in navigator) {
         navigator.serviceWorker
@@ -85,20 +87,150 @@
         console.warn("pageData error", e);
       }
     </script>
+    <style>
+      .posts-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+      }
+
+      .post-card {
+        --post-card-bg: hsl(236, 10%, 25%);
+        --post-card-bg-hover: hsl(240, 10%, 32%);
+      }
+      .post-card a:hover {
+        text-decoration: underline 3px;
+      }
+      .post-card .title {
+        margin: 0.2rem 0 0.4rem;
+        font-size: 1.25rem;
+      }
+      .post-card .description {
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+      }
+      .post-card .post-released-date {
+        font-size: 0.875rem;
+      }
+      .post-card .tags-container {
+        justify-content: flex-end;
+      }
+
+      .tags-container {
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.25rem;
+      }
+      .tags-container .tag::before {
+        content: "#";
+        margin: 1px;
+        opacity: 0.5;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 0.5rem;
+        margin: 0.5rem auto 0;
+        width: fit-content;
+      }
+      .social-links a {
+        transition: opacity cubic-bezier(0.6, 0, 0.3, 1) 150ms;
+        opacity: 0.6;
+      }
+      .social-links a:hover {
+        opacity: 1;
+      }
+
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+        }
+      }
+      .me-banner {
+        display: grid;
+        grid-template-columns: auto minmax(100px, 20%);
+        grid-template-rows: auto auto auto;
+        grid-template-areas: "name img" "description img" "social-links img";
+        column-gap: 10px;
+        margin-top: 3rem;
+        margin-bottom: 4rem;
+        padding: 20px 0 30px;
+      }
+      .me-banner h1 {
+        grid-area: name;
+        margin-top: 0.1rem;
+        margin-bottom: 6px;
+        font-size: 3rem;
+      }
+      .me-banner h3 {
+        grid-area: description;
+        margin: 0;
+        margin-bottom: 25px;
+        font-weight: normal;
+        font-size: 1rem;
+        line-height: 1.5rem;
+      }
+      .me-banner .social-links {
+        grid-area: social-links;
+        margin: 0;
+      }
+      .me-banner .me-image {
+        --me-image-size: 0.9;
+        grid-area: img;
+        aspect-ratio: 1/1;
+        background-repeat: no-repeat;
+        background-size: calc(var(--me-image-size) * 100%);
+        background-position: center;
+        height: 100%;
+        min-width: 100px;
+      }
+      .me-banner .me-image image {
+        animation-name: fade-in;
+        animation-duration: 1s;
+        transform-origin: center;
+        transform: scale(var(--me-image-size));
+      }
+      @media (max-width: 640px) {
+        .me-banner {
+          grid-template-columns: 100%;
+          grid-template-rows: 100px auto auto auto;
+          grid-template-areas: "img" "name" "description" "social-links";
+        }
+        .me-banner h1 {
+          margin-top: 20px;
+          font-size: 2.5rem;
+        }
+        .me-banner picture {
+          height: 100%;
+        }
+      }
+
+      .sub-heading {
+        margin-bottom: 1.6rem;
+      }
+
+      .stretch-out {
+        --stretch: var(--body-margin-x);
+        margin-right: calc(-1 * var(--stretch));
+        margin-left: calc(-1 * var(--stretch));
+        padding-right: var(--stretch);
+        padding-left: var(--stretch);
+      }
+    </style>
   </head>
 
   <body>
     <div id="root">
       <div class="top-banner">
-        To know about what the fuck happened to this site, visit the
-        <a
-          href="https://css-naked-day.github.io"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="styled-link"
-          >Annual CSS Naked Day</a
-        >
-        website.
+        I support Ukraine
+        <img
+          alt="🇺🇦"
+          src="https://abs-0.twimg.com/emoji/v2/svg/1f1fa-1f1e6.svg"
+          draggable="false"
+          class="ua-flag"
+          width="36"
+          height="36"
+        />
       </div>
       <nav>
         <div></div>

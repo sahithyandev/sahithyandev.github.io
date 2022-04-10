@@ -68,6 +68,8 @@
       defer=""
     ></script>
 
+    <link rel="stylesheet" href="/global.css" />
+
     <script>
       if ("serviceWorker" in navigator) {
         navigator.serviceWorker
@@ -88,20 +90,25 @@
         console.warn("pageData error", e);
       }
     </script>
+    <link rel="stylesheet" href="/route-post.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/prismjs@1.23.0/themes/prism-twilight.css"
+    />
   </head>
 
   <body>
     <div id="root">
       <div class="top-banner">
-        To know about what the fuck happened to this site, visit the
-        <a
-          href="https://css-naked-day.github.io"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="styled-link"
-          >Annual CSS Naked Day</a
-        >
-        website.
+        I support Ukraine
+        <img
+          alt="🇺🇦"
+          src="https://abs-0.twimg.com/emoji/v2/svg/1f1fa-1f1e6.svg"
+          draggable="false"
+          class="ua-flag"
+          width="36"
+          height="36"
+        />
       </div>
       <nav>
         <a href="/" class="nav--logo" data-is-internal="">sahithyan</a
