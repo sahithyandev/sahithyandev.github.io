@@ -4,7 +4,7 @@
         <description><![CDATA[The website/blog of Sahithyan, A teen front-end developer, a student and a tech enthusiast from Jaffna, Sri Lanka.]]></description>
         <link>https://sahithyandev.github.io</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 20 Apr 2022 13:49:40 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 23 Apr 2022 15:53:51 GMT</lastBuildDate>
         <atom:link href="https://sahithyandev.github.io/feed.xml" rel="self" type="application/rss+xml"/>
         <item>
             <title><![CDATA[The is-odd NPM package]]></title>
