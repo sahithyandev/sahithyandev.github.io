@@ -91,12 +91,6 @@ article img.block {
   margin: 0 auto;
   max-height: 600px;
 }
-article img.block.latex {
-  min-height: 60px;
-}
-article img.block.latex.size-small {
-  padding: 10px 0;
-}
 article figure {
   margin: 0;
   padding: 1em 40px;
