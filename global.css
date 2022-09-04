@@ -7,12 +7,15 @@
   font-size: 18px;
   font-family: "Inter";
   color-scheme: dark;
-  --background: hsl(300deg 3% 12%);
+  --background: hsl(300deg, 3%, 12%);
+  --background-80: hsla(300deg, 3%, 12%, 0.8);
   --secondary-background: hsla(240, 5%, 18%, 0.6);
   --font-color: #fffbfe;
+  --font-color-40: hsl(315, 100%, 99%, 0.4);
   --main: #faf33e;
   --main-half-opacity: #faf33e70;
   --secondary: hsl(213deg, 94%, 68%);
+  --secondary-30: hsl(213, 94%, 68%, 0.3);
   --secondary-dark: #2563eb;
   --project-card-bg: hsl(240deg 8% 14%);
 }
@@ -26,9 +29,12 @@
   :root {
     color-scheme: light;
     --background: #fffbfe;
-    --secondary-background: hsla(315deg, 2%, 78%, 0.7);
+    --background-80: hsla(315, 100%, 99%, 0.8);
+    --secondary-background: hsla(315, 2%, 78%, 0.7);
     --font-color: #131315;
+    --font-color-40: hsl(240, 5%, 8%, 0.4);
     --secondary: hsl(213deg, 94%, 45%);
+    --secondary-30: hsl(213deg, 94%, 68%, 0.3);
     --project-card-bg: hsl(240deg, 5%, 90%);
   }
 
@@ -149,11 +155,12 @@ nav ul li:hover {
 @media (max-width: 640px) {
   nav {
     margin-top: 1rem;
+    z-index: 10;
   }
   nav .hamburger-icon {
     margin-left: auto;
     display: block;
-    z-index: 2;
+    z-index: 11;
   }
   nav .hamburger-icon::before {
     transform: translateY(-4px);
@@ -180,7 +187,7 @@ nav ul li:hover {
     top: 0;
     right: 0;
     bottom: 0;
-    z-index: 1;
+    z-index: 10;
     padding: 20vh 24px;
     color: var(--font-color);
     background-color: var(--secondary-background);
@@ -203,6 +210,9 @@ nav ul li:hover {
   }
   nav ul li[data-animation-delay-id="2"] {
     transition-delay: 0.8s;
+  }
+  nav ul li[data-animation-delay-id="3"] {
+    transition-delay: 0.9s;
   }
   nav #menu-toggle:checked ~ ul {
     transform: translateX(0);

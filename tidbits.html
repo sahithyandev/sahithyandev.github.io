@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>About | Sahithyan</title>
+    <title>Tidbits | Sahithyan</title>
     <meta
       name="description"
       content="The website/blog of Sahithyan, A teen front-end developer, a student and a tech enthusiast from Jaffna, Sri Lanka."
@@ -28,7 +28,7 @@
       property="og:description"
       content="The website/blog of Sahithyan, A teen front-end developer, a student and a tech enthusiast from Jaffna, Sri Lanka."
     />
-    <meta property="og:title" content="About | Sahithyan" />
+    <meta property="og:title" content="Tidbits | Sahithyan" />
     <meta property="og:url" content="sahithyandev.github.io" />
     <meta property="og:site_name" content="Sahithyan" />
     <meta
@@ -80,34 +80,52 @@
     <script>
       let pageData;
       try {
-        pageData = JSON.parse(`{}`);
+        pageData = JSON.parse(`%PAGE_DATA%`);
       } catch (e) {
         console.warn("pageData error", e);
       }
     </script>
     <style>
-      .social-links {
-        display: flex;
-        gap: 0.5rem;
-        margin: 0.5rem auto 0;
-        width: fit-content;
+      .tidbits-container {
+        margin-top: 50px;
       }
-      .social-links a {
-        transition: opacity cubic-bezier(0.6, 0, 0.3, 1) 150ms;
-        opacity: 0.6;
-      }
-      .social-links a:hover {
-        opacity: 1;
+      @media (max-width: 640px) {
+        .tidbits-container {
+          margin-top: 40px;
+        }
       }
 
-      .styled-link {
-        color: var(--secondary);
-        transition: all cubic-bezier(0.4, 0, 0.2, 1) 150ms;
-        text-decoration: underline;
+      .tidbit-container {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto 1fr;
+        grid-template-areas: "img title" "img description";
+        column-gap: 20px;
+      }
+      @media (max-width: 640px) {
+        .tidbit-container {
+          grid-template-columns: auto;
+          grid-template-rows: repeat(3, auto);
+          grid-template-areas: "img" "title" "description";
+        }
       }
 
-      .styled-link:hover {
-        color: var(--secondary-dark);
+      .tidbit--title {
+        grid-area: title;
+        margin-top: 0;
+      }
+
+      .tidbit--img {
+        grid-area: img;
+        height: fit-content;
+        width: 100%;
+        margin-bottom: 20px;
+        border-radius: 4px;
+      }
+
+      .tidbit--description {
+        grid-area: description;
+        margin: 8px 0;
       }
     </style>
   </head>
@@ -138,52 +156,30 @@
         </ul>
       </nav>
       <main>
-        <h1>About</h1>
+        <h1>Tidbits</h1>
         <p>
-          Hello!, I am Sahithyan, a 18-year-old web developer, a student and a
-          tech enthusiast. I am from Jaffna, Sri Lanka.
+          Here lies the small fun things I worked on, and available under this
+          website.
         </p>
-        <p>I know HTML, CSS, JavaScript and TypeScript.</p>
-        <h2>About this site</h2>
-        <p>
-          This website is made using Preact (TypeScript), Sass, MDX and Rollup.
-          And hosted using GitHub Pages. For security reasons, I have made the
-          source code of this website private.
-        </p>
-        <h2>Contact me</h2>
-        <p>
-          The fastest and the easiest way would be direct messaging me on
-          Twitter
-          <a
-            href="https://www.twitter.com/sahithyandev"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="styled-link"
-            >@sahithyandev</a
-          >. You can email me at
-          <a
-            href="mailto:sahithyan2701@gmail.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="styled-link"
-            >sahithyan2701@gmail.com</a
-          >. And also, you can find me on
-          <a
-            href="https://www.instagram.com/sahithyan_"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="styled-link"
-            >Instagram</a
+        <div class="tidbits-container">
+          <a href="/tools/dp-maker"
+            ><div class="tidbit-container">
+              <h2 class="tidbit--title">DP Maker</h2>
+              <img
+                class="tidbit--img"
+                src="/og-dp-maker.png"
+                alt="DP Maker project"
+                width="1200"
+                height="630"
+              />
+              <p class="tidbit--description">
+                With this little tool you can create gradient-bordered display
+                pictures (just like mine!). I hope at least a few people find it
+                fun and/or useful.
+              </p>
+            </div></a
           >
-          and
-          <a
-            href="https://www.github.com/sahithyandev"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="styled-link"
-            >GitHub</a
-          >!
-        </p>
+        </div>
       </main>
       <footer>© Sahithyan 2022</footer>
     </div>

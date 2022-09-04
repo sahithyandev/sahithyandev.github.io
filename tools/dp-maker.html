@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en" style="--show-image-loading: none">
+  <head>
+    <title>Create Your Own DP | Sahithyan</title>
+    <meta
+      name="description"
+      content="With this small 'DP Maker' tool, you can create gradient-bordered display pictures (just like mine!). Made by me, Sahithyan."
+    />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link
+      rel="alternate"
+      href="https://sahithyandev.github.io/feed.xml"
+      type="application/rss+xml"
+      title="RSS feed"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@sahithyandev" />
+
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:description"
+      content="With this small 'DP Maker' tool, you can create gradient-bordered display pictures (just like mine!). Made by me, Sahithyan."
+    />
+    <meta property="og:title" content="Create Your Own DP | Sahithyan" />
+    <meta property="og:url" content="sahithyandev.github.io" />
+    <meta property="og:site_name" content="Sahithyan" />
+    <meta
+      property="og:image"
+      content="https://sahithyandev.github.io/og-dp-maker.png"
+    />
+    <meta property="og:image:alt" content="The " dp="" maker"="" tool"="">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap"
+      as="style"
+      onload="this.onload=null; this.rel='stylesheet'"
+      id="google-fonts-link"
+    />
+
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+        rel="stylesheet"
+        type="text/css"
+      />
+    </noscript>
+
+    <script
+      data-host="https://microanalytics.io"
+      data-dnt="false"
+      src="https://microanalytics.io/js/script.js"
+      id="ZwSg9rf6GA"
+      async=""
+      defer=""
+    ></script>
+
+    <link rel="stylesheet" href="/global.css" />
+
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("/service-worker.js")
+          .catch((error) => {
+            console.error("Error while initializing service worker", error);
+          });
+      }
+    </script>
+
+    <script>
+      let pageData;
+      try {
+        pageData = JSON.parse(`%PAGE_DATA%`);
+      } catch (e) {
+        console.warn("pageData error", e);
+      }
+    </script>
+    <style>
+      .dp {
+        --me-image-size: 0.9;
+        aspect-ratio: 1/1;
+        background-repeat: no-repeat;
+        background-size: calc(var(--me-image-size) * 100%);
+        background-position: center;
+        height: 100%;
+        min-width: 100px;
+      }
+      .dp image {
+        animation-name: fade-in;
+        animation-duration: 1s;
+      }
+      .dp path#path-to-clip {
+        transition: d 0.3s;
+      }
+      .dp .loading-state-mask {
+        transform-origin: center;
+        transform: scale(var(--me-image-size));
+      }
+      .dp .loading-state-mask rect {
+        fill: var(--background-80);
+      }
+      .dp .loading-state-mask text {
+        transform: translate(50%, 50%);
+        text-anchor: middle;
+        font-size: 1.8em;
+        fill: var(--font-color);
+      }
+
+      body {
+        margin-bottom: 100px;
+      }
+
+      button {
+        cursor: pointer;
+        background: none;
+        border: none;
+      }
+
+      label:focus-within {
+        outline: 2px solid var(--font-color);
+      }
+
+      .sr-only {
+        border: 0 !important;
+        clip: rect(1px, 1px, 1px, 1px) !important;
+        -webkit-clip-path: inset(50%) !important;
+        clip-path: inset(50%) !important;
+        height: 1px !important;
+        overflow: hidden !important;
+        margin: -1px !important;
+        padding: 0 !important;
+        position: absolute !important;
+        width: 1px !important;
+        white-space: nowrap !important;
+      }
+
+      main {
+        display: grid;
+        margin-top: 40px;
+        grid-template-columns: min(380px, 50%) auto;
+        grid-template-rows: repeat(3, auto);
+        grid-template-areas: ". heading" "dp controls" "dp controls";
+        column-gap: 28px;
+      }
+      @media (max-width: 640px) {
+        main {
+          grid-template-columns: auto;
+          grid-template-rows: repeat(3, auto);
+          grid-template-areas: "heading" "dp" "controls";
+          row-gap: 20px;
+        }
+      }
+
+      .heading {
+        grid-area: heading;
+        text-align: center;
+      }
+
+      .dp-container {
+        grid-area: dp;
+        top: 40px;
+        position: sticky;
+        z-index: 1;
+        display: flex;
+        height: fit-content;
+        width: fit-content;
+        margin: 10px auto 0;
+      }
+      .dp-container .dp {
+        --me-image-size: 0.94;
+        width: 100%;
+        max-width: 320px;
+      }
+      .dp-container .dp #dp--user-image {
+        cursor: pointer;
+      }
+
+      .controls {
+        grid-area: controls;
+      }
+      .controls ul {
+        list-style: none;
+        padding: 0;
+      }
+      .controls ul li {
+        margin: 8px 0;
+      }
+      .controls ul li h5 {
+        margin-bottom: 10px;
+        font-size: 0.8em;
+      }
+      .controls ul li label {
+        font-size: 0.8rem;
+      }
+      .controls ul li input {
+        margin: 2px 3px;
+      }
+      .controls .input-group {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        margin-bottom: 14px;
+      }
+      .controls .colors-input-container {
+        --size: 40px;
+        height: var(--size);
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+      .controls .colors-input-container .color-input--selector {
+        width: var(--size);
+        height: var(--size);
+        border: 3px solid var(--font-color-40);
+        border-radius: 4px;
+        cursor: pointer;
+        box-sizing: content-box;
+      }
+      .controls .colors-input-container .color-input--selector:hover {
+        border-color: var(--secondary);
+      }
+      .controls .colors-input-container .auto-button {
+        margin-left: auto;
+      }
+      @media (max-width: 640px) {
+        .controls .colors-input-container {
+          --size: 58px;
+        }
+      }
+      .controls .shape-input-container label {
+        margin-right: 5px;
+      }
+      .controls .shape-input-container .shape-input .shape-input--selector {
+        display: inline-block;
+        text-transform: capitalize;
+        cursor: pointer;
+        padding: 8px 14px;
+        font-size: 1.1em;
+        border-radius: 4px;
+        border: 2px solid var(--font-color-40);
+        background: transparent;
+      }
+      .controls
+        .shape-input-container
+        .shape-input
+        .shape-input--selector:hover {
+        border-color: var(--secondary);
+      }
+      .controls
+        .shape-input-container
+        .shape-input
+        input[name="shape"]:checked
+        + .shape-input--selector {
+        border-color: var(--secondary);
+        background: var(--secondary-30);
+      }
+
+      .choose-image-hint {
+        font-size: 0.9em;
+        opacity: 0.9;
+      }
+
+      .save-button {
+        padding: 10px 32px;
+        font-family: Inter;
+        font-size: 0.9em;
+        background: var(--background);
+        color: var(--font-color);
+        border-radius: 4px;
+        font-weight: 600;
+        transition: color 0.25s, background 0.15s;
+        outline: 2px solid var(--font-color);
+      }
+      .save-button:not(:disabled):hover,
+      .save-button:not(:disabled):focus {
+        background: var(--font-color);
+        color: var(--background);
+      }
+      .save-button:disabled {
+        cursor: auto;
+        opacity: 0.5;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root">
+      <nav>
+        <a href="/" class="nav--logo" data-is-internal="">sahithyan</a
+        ><input type="checkbox" id="menu-toggle" /><label
+          for="menu-toggle"
+          class="hamburger-icon"
+        ></label>
+        <ul>
+          <li data-animation-delay-id="0">
+            <a href="/tidbits" class="nav--link" data-is-internal="">Tidbits</a>
+          </li>
+          <li data-animation-delay-id="1">
+            <a href="/projects" class="nav--link" data-is-internal=""
+              >Projects</a
+            >
+          </li>
+          <li data-animation-delay-id="2">
+            <a href="/posts" class="nav--link" data-is-internal="">Posts</a>
+          </li>
+          <li data-animation-delay-id="3">
+            <a href="/about" class="nav--link" data-is-internal="">About</a>
+          </li>
+        </ul>
+      </nav>
+      <main>
+        <label for="img-input" class="dp-container"
+          ><svg
+            viewBox="0,0,400,400"
+            class="dp"
+            data-shape="squircle"
+            style="--me-image-size: 0.9"
+          >
+            <style>
+              .dp[data-shape="squircle"] #path-to-clip {
+                d: path(
+                  "M 0 200 C 0 0, 0 0, 200 0 S 400 0, 400 200, 400 400 200 400, 0 400, 0 200"
+                );
+              }
+
+              .dp[data-shape="circle"] #path-to-clip {
+                d: path(
+                  "M 0 200 C 0 90, 90 0, 200 0 S 400 90, 400 200, 310 400 200 400, 0 310, 0 200"
+                );
+              }
+            </style>
+            <defs>
+              <linearGradient
+                id="background-gradient"
+                gradientTransform="rotate(0 .5 .5)"
+              >
+                <stop offset="0%" stop-color="#f9a83d"></stop>
+                <stop offset="100%" stop-color="#b4284d"></stop>
+              </linearGradient>
+              <path
+                id="path-to-clip"
+                d="M 0 200 C 0 0, 0 0, 200 0 S 400 0, 400 200, 400 400 200 400, 0 400, 0 200"
+              ></path>
+            </defs>
+            <clipPath id="image-clip-path">
+              <use href="#path-to-clip"></use>
+            </clipPath>
+            <use href="#path-to-clip" fill="url(#background-gradient)"></use>
+            <g
+              style="
+                transform-origin: center center;
+                transform: scale(var(--me-image-size));
+              "
+            >
+              <image
+                type="image/jpeg"
+                alt=""
+                width="100%"
+                height="100%"
+              ></image>
+              <image
+                id="dp--user-image"
+                href="/me.jpg"
+                type="image/jpeg"
+                alt=""
+                width="100%"
+                height="100%"
+                clip-path="url(#image-clip-path)"
+                preserveAspectRatio="xMidYMid slice"
+              ></image>
+            </g>
+            <g
+              class="loading-state-mask"
+              clip-path="url(#image-clip-path)"
+              style="display: var(--show-image-loading, none)"
+            >
+              <rect x="0" y="0" width="400" height="400"></rect>
+              <text>Loading...</text>
+            </g></svg
+          ><input type="file" id="img-input" accept="image/*" class="sr-only"
+        /></label>
+        <h2 class="heading">Create Your Own DP</h2>
+        <div class="controls">
+          <span class="choose-image-hint"
+            >You can choose your image by clicking/pressing on the image on the
+            left. Until then, the save button will remain disabled. 😀<br /><br />Your
+            image is not being uploaded to anywhere. Only the basic usage data
+            is being collected for the purpose of analytics.</span
+          >
+          <ul>
+            <li>
+              <h5>Shape</h5>
+              <div class="shape-input-container">
+                <label for="squircle" class="shape-input"
+                  ><input
+                    name="shape"
+                    type="radio"
+                    id="squircle"
+                    class="sr-only"
+                    value="squircle"
+                  /><span class="shape-input--selector">squircle</span></label
+                ><label for="circle" class="shape-input"
+                  ><input
+                    name="shape"
+                    type="radio"
+                    id="circle"
+                    class="sr-only"
+                    value="circle"
+                  /><span class="shape-input--selector">circle</span></label
+                >
+              </div>
+            </li>
+            <li>
+              <h5>Colors</h5>
+              <div class="colors-input-container">
+                <label class="color-input"
+                  ><input type="color" class="sr-only" />
+                  <div
+                    class="color-input--selector"
+                    style="background: rgb(249, 168, 61)"
+                  ></div></label
+                ><label class="color-input"
+                  ><input type="color" class="sr-only" />
+                  <div
+                    class="color-input--selector"
+                    style="background: rgb(180, 40, 77)"
+                  ></div
+                ></label>
+              </div>
+            </li>
+            <li>
+              <h5>Fine tune</h5>
+              <span class="input-group"
+                ><label for="gradient-size">Gradient size</label
+                ><input
+                  type="range"
+                  id="gradient-size"
+                  min="0"
+                  max="16" /></span
+              ><span class="input-group"
+                ><label>Gradient angle</label
+                ><input type="range" id="gradient-angle" min="0" max="360"
+              /></span>
+            </li>
+            <li style="text-align: right; margin-top: 32px">
+              <button
+                class="save-button"
+                disabled=""
+                title="Why do you want to save my picture? Huh? 😏"
+              >
+                Save
+              </button>
+            </li>
+          </ul>
+        </div>
+      </main>
+    </div>
+    <script src="/lib-preact.js"></script>
+    <script id="main-script" defer="" src="/tools/dp-maker.js"></script>
+  </body>
+</html>
