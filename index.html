@@ -81,7 +81,7 @@
       let pageData;
       try {
         pageData = JSON.parse(
-          `{"latestPosts":[{"slug":"the-is-odd-npm-package-meme","estReadTime":"2 min read","title":"The is-odd NPM package","tags":["meme"],"dateCreated":"4 November 2021","lastUpdatedOn":"14 March 2022"},{"slug":"a-javascript-quiz","estReadTime":"8 min read","title":"A JavaScript Quiz — Explained","description":"Explanation of an amazing quiz I took an year ago.","tags":["explanation"],"dateCreated":"17 September 2021","lastUpdatedOn":"14 March 2022"},{"slug":"building-xcalc","estReadTime":"8 min read","title":"Story of Building XCalc","description":"Sharing how I built XCalc, an extended calculator.","tags":["experience","project"],"dateCreated":"10 June 2021","lastUpdatedOn":"3 June 2022"},{"slug":"javascript-shorthands","estReadTime":"4 min read","title":"JavaScript Shorthands","description":"Do you write JavaScript a lot? These shorthands might be helpful to you.","tags":["javascript"],"dateCreated":"7 April 2021","lastUpdatedOn":"14 March 2022"}]}`
+          `{"latestPosts":[{"slug":"a-javascript-quiz","estReadTime":"8 min read","title":"A JavaScript Quiz — Explained","description":"Explanation of an amazing quiz I took an year ago.","tags":["explanation"],"dateCreated":"17 September 2021","lastUpdatedOn":"14 March 2022"},{"slug":"building-xcalc","estReadTime":"8 min read","title":"Story of Building XCalc","description":"Sharing how I built XCalc, an extended calculator.","tags":["experience","project"],"dateCreated":"10 June 2021","lastUpdatedOn":"3 June 2022"},{"slug":"divisibility-rules","estReadTime":"8 min read","title":"Divisibility Rules - An Explanation","description":"How much time would you need to check if a given number is divisible by 2 –15 without a computer? Well, for the first few numbers, you would be so fast. But you will get stuck at 7 or 13 right? Don't worry. After reading this article, you won't. Give it a try.","tags":["mathematics"],"dateCreated":"27 February 2021","lastUpdatedOn":"14 March 2022"},{"slug":"javascript-shorthands","estReadTime":"4 min read","title":"JavaScript Shorthands","description":"Do you write JavaScript a lot? These shorthands might be helpful to you.","tags":["javascript"],"dateCreated":"7 April 2021","lastUpdatedOn":"14 March 2022"}]}`
         );
       } catch (e) {
         console.warn("pageData error", e);
@@ -448,17 +448,6 @@
         <section>
           <h2 class="sub-heading">Recent Posts</h2>
           <div class="posts-container">
-            <div class="post-card show" data-slug="the-is-odd-npm-package-meme">
-              <span class="post-released-date">4 November 2021</span
-              ><a
-                href="/post/the-is-odd-npm-package-meme"
-                data-is-internal=""
-                class=" "
-                ><h3 class="title">The is-odd NPM package</h3></a
-              >
-              <p class="description"></p>
-              <div class="tags-container"><span class="tag">meme</span></div>
-            </div>
             <div class="post-card show" data-slug="a-javascript-quiz">
               <span class="post-released-date">17 September 2021</span
               ><a href="/post/a-javascript-quiz" data-is-internal="" class=" "
@@ -482,6 +471,22 @@
               <div class="tags-container">
                 <span class="tag">experience</span
                 ><span class="tag">project</span>
+              </div>
+            </div>
+            <div class="post-card show" data-slug="divisibility-rules">
+              <span class="post-released-date">27 February 2021</span
+              ><a href="/post/divisibility-rules" data-is-internal="" class=" "
+                ><h3 class="title">Divisibility Rules - An Explanation</h3></a
+              >
+              <p class="description">
+                How much time would you need to check if a given number is
+                divisible by 2 –15 without a computer? Well, for the first few
+                numbers, you would be so fast. But you will get stuck at 7 or 13
+                right? Don't worry. After reading this article, you won't. Give
+                it a try.
+              </p>
+              <div class="tags-container">
+                <span class="tag">mathematics</span>
               </div>
             </div>
             <div class="post-card show" data-slug="javascript-shorthands">
