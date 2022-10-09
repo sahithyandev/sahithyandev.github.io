@@ -142,14 +142,17 @@ nav ul li:hover {
     animation-duration: 0.2s;
     animation-fill-mode: forwards;
   }
-  nav ul li[data-animation-delay-id="0"] {
+  nav ul li:nth-child(1) {
     animation-delay: 0.1s;
   }
-  nav ul li[data-animation-delay-id="1"] {
+  nav ul li:nth-child(2) {
     animation-delay: 0.18s;
   }
-  nav ul li[data-animation-delay-id="2"] {
+  nav ul li:nth-child(3) {
     animation-delay: 0.26s;
+  }
+  nav ul li:nth-child(4) {
+    animation-delay: 0.34s;
   }
 }
 @media (max-width: 640px) {
@@ -202,16 +205,16 @@ nav ul li:hover {
     transform: translateY(0) translateX(-50%);
     transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
   }
-  nav ul li[data-animation-delay-id="0"] {
+  nav ul li:nth-child(1) {
     transition-delay: 0.6s;
   }
-  nav ul li[data-animation-delay-id="1"] {
+  nav ul li:nth-child(2) {
     transition-delay: 0.7s;
   }
-  nav ul li[data-animation-delay-id="2"] {
+  nav ul li:nth-child(3) {
     transition-delay: 0.8s;
   }
-  nav ul li[data-animation-delay-id="3"] {
+  nav ul li:nth-child(4) {
     transition-delay: 0.9s;
   }
   nav #menu-toggle:checked ~ ul {
