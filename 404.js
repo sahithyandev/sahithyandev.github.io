@@ -26,4 +26,4 @@
     LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
     OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
     PERFORMANCE OF THIS SOFTWARE.
-    ***************************************************************************** */var i;i={red:91,yellow:93,cyan:96},Object.fromEntries(Object.entries(i).map((function(t){return[t[0],"["+t[1]+"m"]})));t.render(t.h((function(){var n=e.useState([]);return n[0],n[1],t.h(t.Fragment,null,t.h(o,null),t.h("div",{id:"main"},t.h("h1",null,"$>> paGe n0t found")),t.h(a,null))}),null),document.getElementById("root"))}(preact,preact);
+    ***************************************************************************** */var i;function s(){return t.h(t.Fragment,null,t.h(o,null),t.h("div",{id:"main"},t.h("h1",null,"$>> paGe n0t found")),t.h(a,null))}i={red:91,yellow:93,cyan:96},Object.fromEntries(Object.entries(i).map((function(t){return[t[0],"["+t[1]+"m"]})));t.render(t.h((function(){var n=e.useState([]);return n[0],n[1],t.h(s,null)}),null),document.getElementById("root"))}(preact,preact);
