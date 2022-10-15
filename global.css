@@ -37,9 +37,8 @@
     --secondary-30: hsl(213deg, 94%, 68%, 0.3);
     --project-card-bg: hsl(240deg, 5%, 90%);
   }
-
   input {
-    background: #dadadd;
+    background: hsl(240deg, 5%, 86%);
   }
 }
 * {
@@ -91,8 +90,8 @@ p {
   text-align: center;
   margin: 0 calc(-1 * var(--body-margin-x));
   padding: 5px 0;
-  background: #000b1f;
-  color: #e6eeff;
+  background: hsl(219deg, 100%, 6%);
+  color: hsl(219deg, 100%, 95%);
   transform: translateY(-110%);
   animation: topBannerDropin 0.3s ease-in-out 5s forwards;
 }
@@ -101,7 +100,7 @@ p {
   vertical-align: middle;
 }
 .top-banner a {
-  color: #adb4ff;
+  color: hsl(235deg, 100%, 84%);
   text-decoration: underline;
 }
 
