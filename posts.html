@@ -42,18 +42,14 @@
 
     <link
       rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap"
       as="style"
       onload="this.onload=null; this.rel='stylesheet'"
-      id="google-fonts-link"
+      class="google-fonts-link"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap"
     />
 
     <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
-        rel="stylesheet"
-        type="text/css"
-      />
+      <link class="google-fonts-link" rel="stylesheet" type="text/css" />
     </noscript>
 
     <script
@@ -77,14 +73,13 @@
       }
     </script>
 
-    <script>
-      let pageData;
-      try {
-        pageData = JSON.parse(
-          `{"posts":[{"slug":"open-graph-images","estReadTime":"5 min read","title":"Static Open Graph images","description":"I added statically-generated Open Graph images to my posts; and how I optimized them.","tags":["experience"],"dateCreated":"20 November 2022","lastUpdatedOn":"20 November 2022"},{"slug":"the-is-odd-npm-package-meme","estReadTime":"2 min read","title":"The is-odd NPM package","tags":["meme"],"dateCreated":"4 November 2021","lastUpdatedOn":"14 March 2022"},{"slug":"a-javascript-quiz","estReadTime":"8 min read","title":"A JavaScript Quiz — Explained","description":"Explanation of an amazing quiz I took an year ago.","tags":["explanation"],"dateCreated":"17 September 2021","lastUpdatedOn":"14 March 2022"},{"slug":"building-xcalc","estReadTime":"8 min read","title":"Story of Building XCalc","description":"Sharing how I built XCalc, an extended calculator.","tags":["experience","project"],"dateCreated":"10 June 2021","lastUpdatedOn":"3 June 2022"},{"slug":"javascript-shorthands","estReadTime":"4 min read","title":"JavaScript Shorthands","description":"Do you write JavaScript a lot? These shorthands might be helpful to you.","tags":["javascript"],"dateCreated":"7 April 2021","lastUpdatedOn":"14 March 2022"},{"slug":"divisibility-rules","estReadTime":"8 min read","title":"Divisibility Rules - An Explanation","description":"How much time would you need to check if a given number is divisible by 2 –15 without a computer? Well, for the first few numbers, you would be so fast. But you will get stuck at 7 or 13 right? Don't worry. After reading this article, you won't. Give it a try.","tags":["mathematics"],"dateCreated":"27 February 2021","lastUpdatedOn":"9 October 2022"}]}`
-        );
-      } catch (e) {
-        console.warn("pageData error", e);
+    <script type="importmap">
+      {
+        "imports": {
+          "preact": "/lib-preact.mjs",
+          "preact/hooks": "/lib-preact.mjs",
+          "preact/compat": "/lib-preact.mjs"
+        }
       }
     </script>
     <style>
@@ -285,7 +280,6 @@
     </div>
     <footer>© Sahithyan 2022</footer>
 
-    <script src="/lib-preact.js"></script>
-    <script id="main-script" defer="" src="/posts.js"></script>
+    <script id="main-script" defer="" src="/App.js" type="module"></script>
   </body>
 </html>

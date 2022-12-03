@@ -42,18 +42,14 @@
 
     <link
       rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap"
       as="style"
       onload="this.onload=null; this.rel='stylesheet'"
-      id="google-fonts-link"
+      class="google-fonts-link"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap"
     />
 
     <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
-        rel="stylesheet"
-        type="text/css"
-      />
+      <link class="google-fonts-link" rel="stylesheet" type="text/css" />
     </noscript>
 
     <script
@@ -77,14 +73,13 @@
       }
     </script>
 
-    <script>
-      let pageData;
-      try {
-        pageData = JSON.parse(
-          `{"latestPosts":[{"slug":"open-graph-images","estReadTime":"5 min read","title":"Static Open Graph images","description":"I added statically-generated Open Graph images to my posts; and how I optimized them.","tags":["experience"],"dateCreated":"20 November 2022","lastUpdatedOn":"20 November 2022"},{"slug":"the-is-odd-npm-package-meme","estReadTime":"2 min read","title":"The is-odd NPM package","tags":["meme"],"dateCreated":"4 November 2021","lastUpdatedOn":"14 March 2022"},{"slug":"a-javascript-quiz","estReadTime":"8 min read","title":"A JavaScript Quiz — Explained","description":"Explanation of an amazing quiz I took an year ago.","tags":["explanation"],"dateCreated":"17 September 2021","lastUpdatedOn":"14 March 2022"},{"slug":"building-xcalc","estReadTime":"8 min read","title":"Story of Building XCalc","description":"Sharing how I built XCalc, an extended calculator.","tags":["experience","project"],"dateCreated":"10 June 2021","lastUpdatedOn":"3 June 2022"}]}`
-        );
-      } catch (e) {
-        console.warn("pageData error", e);
+    <script type="importmap">
+      {
+        "imports": {
+          "preact": "/lib-preact.mjs",
+          "preact/hooks": "/lib-preact.mjs",
+          "preact/compat": "/lib-preact.mjs"
+        }
       }
     </script>
     <style>
@@ -360,7 +355,6 @@
               rel="noopener noreferrer"
               class=" "
               ><svg
-                xmlns="http://www.w3.org/2000/svg"
                 class="icon icon-tabler icon-tabler-brand-twitter"
                 width="24"
                 height="24"
@@ -374,8 +368,7 @@
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                 <path
                   d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z"
-                ></path>
-              </svg> </a
+                ></path></svg></a
             ><a
               title="Instagram (sahithyan_)"
               href="https://www.instagram.com/sahithyan_"
@@ -383,7 +376,6 @@
               rel="noopener noreferrer"
               class=" "
               ><svg
-                xmlns="http://www.w3.org/2000/svg"
                 class="icon icon-tabler icon-tabler-brand-instagram"
                 width="24"
                 height="24"
@@ -397,8 +389,7 @@
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                 <rect x="4" y="4" width="16" height="16" rx="4"></rect>
                 <circle cx="12" cy="12" r="3"></circle>
-                <line x1="16.5" y1="7.5" x2="16.5" y2="7.501"></line>
-              </svg> </a
+                <line x1="16.5" y1="7.5" x2="16.5" y2="7.501"></line></svg></a
             ><a
               title="GitHub (sahithyandev)"
               href="https://www.github.com/sahithyandev"
@@ -406,7 +397,6 @@
               rel="noopener noreferrer"
               class=" "
               ><svg
-                xmlns="http://www.w3.org/2000/svg"
                 class="icon icon-tabler icon-tabler-brand-github"
                 width="24"
                 height="24"
@@ -420,8 +410,7 @@
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                 <path
                   d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"
-                ></path>
-              </svg> </a
+                ></path></svg></a
             ><a
               title="RSS Feed"
               href="https://sahithyandev.github.io/feed.xml"
@@ -429,7 +418,6 @@
               rel="noopener noreferrer"
               class=" "
               ><svg
-                xmlns="http://www.w3.org/2000/svg"
                 class="icon icon-tabler icon-tabler-rss"
                 width="24"
                 height="24"
@@ -443,9 +431,8 @@
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                 <circle cx="5" cy="19" r="1"></circle>
                 <path d="M4 4a16 16 0 0 1 16 16"></path>
-                <path d="M4 11a9 9 0 0 1 9 9"></path>
-              </svg>
-            </a>
+                <path d="M4 11a9 9 0 0 1 9 9"></path></svg
+            ></a>
           </div>
         </div>
         <section>
@@ -505,7 +492,5 @@
       </main>
     </div>
     <footer>© Sahithyan 2022</footer>
-
-    <script src="/lib-preact.js"></script>
   </body>
 </html>

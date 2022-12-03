@@ -42,18 +42,14 @@
 
     <link
       rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap"
       as="style"
       onload="this.onload=null; this.rel='stylesheet'"
-      id="google-fonts-link"
+      class="google-fonts-link"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap"
     />
 
     <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
-        rel="stylesheet"
-        type="text/css"
-      />
+      <link class="google-fonts-link" rel="stylesheet" type="text/css" />
     </noscript>
 
     <script
@@ -77,12 +73,13 @@
       }
     </script>
 
-    <script>
-      let pageData;
-      try {
-        pageData = JSON.parse(`{}`);
-      } catch (e) {
-        console.warn("pageData error", e);
+    <script type="importmap">
+      {
+        "imports": {
+          "preact": "/lib-preact.mjs",
+          "preact/hooks": "/lib-preact.mjs",
+          "preact/compat": "/lib-preact.mjs"
+        }
       }
     </script>
     <style>
@@ -184,7 +181,5 @@
       </main>
     </div>
     <footer>© Sahithyan 2022</footer>
-
-    <script src="/lib-preact.js"></script>
   </body>
 </html>
