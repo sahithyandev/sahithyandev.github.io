@@ -285,19 +285,19 @@
             ><span>Using Puppeteer</span>
           </h2>
           <p>
-            I started looking for some other solution as my initial approach
-            didn't solve the issue for the most part. And I came across GitHub's
-            blog post on
+            After my initial solution failed to fully solve the issue, I started
+            searching for alternate approaches and I stumbled upon
             <a
               href="https://github.blog/2021-06-22-framework-building-open-graph-images/"
               target="_blank"
               rel="noopener noreferrer"
               class="styled-link"
-              >building Open Graph Images</a
-            >. I decided to try out the same thing because it seemed fun and not
-            that hard. On build time, a script would generate some HTML from a
-            predefined template, and use Puppeteer to screenshot the HTML. This
-            way, I was able to generate nice-looking page-specific OG images.
+              >GitHub's blog post on building Open Graph Images</a
+            >. I thought it would be great to do the same for my blog —or to at
+            least give it a try—. So I followed their approach, and used
+            Puppeteer to generate screenshots of a HTML page at build time. This
+            allowed me to generate visually appealing OG images specific to each
+            post.
           </p>
           <p>Here is an example:</p>
           <img
@@ -312,15 +312,13 @@
             the viewers will know about the post at the first sight.
           </p>
           <p>
-            There is one trade-off though: long build times. I am running
-            Puppeteer on each build. Puppeteer is using a headless Chrome under
-            the hood. We all know how about Chrome. Running Puppeteer is
-            resource intensive and time consuming.<br />
-            On top of that, I was already using Puppeteer to render the pages at
-            build time. This means, I am now running two seperate Puppeteer
-            instances(!) which means, there's not one, but TWO headless Chrome
-            instances running. This would have increased the time by at least
-            30s; believe me, that's too long.
+            There is one trade-off though: long build times.Puppeteer is a tool
+            that uses a headless version of Chrome. Its resource-intensive
+            nature makes it time-consuming to use.<br />
+            On top of that, I was already using Puppeteer to prerender the pages
+            at build time. This means, I am now running two separate Puppeteer
+            instances(!) on each build. This would have increased the time by at
+            least 30s; believe me, that's too long.
           </p>
           <p>
             I was ignoring this issue because I felt like there's no
@@ -350,8 +348,10 @@
               rel="noopener noreferrer"
               class="styled-link"
               >OG Image Generation on Edge network</a
-            >. We can use the library <strong>@vercel/og</strong> to generate OG
-            images from HTML/CSS on-the-fly (on API routes). This library uses
+            >. This can be achieved using the
+            <strong>@vercel/og</strong> library, which allows the generation of
+            OG images from HTML/CSS on API routes, on-the-fly. Instead of using
+            Puppeteer, this library utilizes
             <a
               href="https://github.com/vercel/satori#readme"
               target="_blank"
@@ -367,8 +367,8 @@
               class="styled-link"
               >Resvg</a
             >
-            — a library to convert SVG to PNG —, instead of using Puppeteer. You
-            can learn more about it on
+            — a library to convert SVG to PNG —. More information can be found
+            in
             <a
               href="https://vercel.com/docs/concepts/functions/edge-functions/og-image-generation"
               target="_blank"

@@ -91,6 +91,7 @@ article img.block {
   margin: 0 auto;
   max-height: 600px;
   height: auto;
+  width: auto;
 }
 article figure {
   margin: 0;
