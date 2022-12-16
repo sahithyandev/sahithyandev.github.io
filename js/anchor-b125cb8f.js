@@ -1,0 +1,1 @@
+import{h as t}from"./preact-ec53f1bf.js";const e=e=>{const s=e.href||"",a=e.disableDefaultStyles||!1,r={...e};return s.startsWith("/")||s.startsWith("#")?r["data-is-internal"]="":(r.target="_blank",r.rel="noopener noreferrer"),r.class=(r.class||"").split(" ").concat([a?"":"styled-link"]).join(" "),r.disableDefaultStyles=null,t("a",{...r})};export{e as A};
