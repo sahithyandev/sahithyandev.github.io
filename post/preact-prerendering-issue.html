@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Solving the Prerendering Preact Problem | Sahithyan</title>
+    <meta
+      name="description"
+      content="Having trouble while prerendering a Preact site? In this post, I'll share my experience finding a solution to this common problem."
+    />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link
+      rel="alternate"
+      href="https://sahithyandev.github.io/feed.xml"
+      type="application/rss+xml"
+      title="RSS feed"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@sahithyandev" />
+
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:description"
+      content="Having trouble while prerendering a Preact site? In this post, I'll share my experience finding a solution to this common problem."
+    />
+    <meta
+      property="og:title"
+      content="Solving the Prerendering Preact Problem | Sahithyan"
+    />
+    <meta property="og:url" content="sahithyandev.github.io" />
+    <meta property="og:site_name" content="Sahithyan" />
+    <meta
+      property="og:image"
+      content="https://sahithyandev.github.io/og-images/preact-prerendering-issue.png"
+    />
+    <meta
+      property="og:image:alt"
+      content="Having trouble while prerendering a Preact site? In this post, I'll share my experience finding a solution to this common problem."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+
+    <link
+      rel="preload"
+      as="style"
+      onload="this.onload=null; this.rel='stylesheet'"
+      class="google-fonts-link"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap"
+    />
+
+    <noscript>
+      <link class="google-fonts-link" rel="stylesheet" type="text/css" />
+    </noscript>
+
+    <script
+      data-host="https://microanalytics.io"
+      data-dnt="false"
+      src="https://microanalytics.io/js/script.js"
+      id="ZwSg9rf6GA"
+      async=""
+      defer=""
+    ></script>
+
+    <link rel="stylesheet" href="/global.css" />
+
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("/service-worker.js")
+          .catch((error) => {
+            console.error("Error while initializing service worker", error);
+          });
+      }
+    </script>
+
+    <link rel="stylesheet" href="/route-post.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"
+      crossorigin="anonymous"
+      integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/prismjs@1.23.0/themes/prism-twilight.css"
+    />
+  </head>
+
+  <body>
+    <div id="nav-bar">
+      <nav>
+        <a href="/" class="nav--logo" data-is-internal="">sahithyan</a
+        ><input type="checkbox" id="menu-toggle" /><label
+          for="menu-toggle"
+          class="hamburger-icon"
+        ></label>
+        <ul>
+          <li>
+            <a href="/tidbits" class="nav--link" data-is-internal="">Tidbits</a>
+          </li>
+          <li>
+            <a href="/projects" class="nav--link" data-is-internal=""
+              >Projects</a
+            >
+          </li>
+          <li>
+            <a href="/posts" class="nav--link" data-is-internal="">Posts</a>
+          </li>
+          <li>
+            <a href="/about" class="nav--link" data-is-internal="">About</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div id="root">
+      <main>
+        <h1 class="post-title">Solving the Prerendering Preact Problem</h1>
+        <div class="post-meta">
+          <span class="post-meta--release-date">21 December 2022</span
+          ><span class="post-meta--reading-time">5 min read</span>
+          <div class="tags-container">
+            <span class="tag">preact</span><span class="tag">experience</span>
+          </div>
+        </div>
+        <article>
+          <p>
+            I am using Puppeteer to prerender my website which is powered by
+            Preact. Recently, I came across an issue with my setup and thought
+            it's worth a blog post. And here we are.
+          </p>
+          <p>
+            I have made
+            <a href="/tools/dp-maker" data-is-internal="" class="styled-link"
+              >the DP Maker</a
+            >
+            some time ago. It has a few inputs controlled by Preact. They were
+            working fine first. When I switched to <code>hydrate</code> (instead
+            of <code>render</code>) on production, I noticed something odd: no
+            default states were there for range and checkbox inputs.<br />
+            Fortunately, I was able to find and fix the issue.
+          </p>
+          <p>Let's say we run this code in a browser.</p>
+          <pre
+            class="language-javascript"
+          ><code class="language-javascript"><span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> h<span class="token punctuation">,</span> render <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"preact"</span><span class="token punctuation">;</span>
+<span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> useState <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"preact/hooks"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function"><span class="token maybe-class-name">WhateverComponent</span></span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">[</span>isChecked<span class="token punctuation">,</span> setIsChecked<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword control-flow">return</span> <span class="token operator">&lt;</span>input id<span class="token operator">=</span><span class="token string">"my-checkbox"</span> type<span class="token operator">=</span><span class="token string">"checkbox"</span> checked<span class="token operator">=</span><span class="token punctuation">{</span>checked<span class="token punctuation">}</span> onInput<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">setIsChecked</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span><span class="token property-access">target</span><span class="token punctuation">.</span><span class="token property-access">valueAsBoolean</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">render</span><span class="token punctuation">(</span><span class="token operator">&lt;</span><span class="token maybe-class-name">WhateverComponent</span> <span class="token operator">/</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">getElementById</span><span class="token punctuation">(</span><span class="token string">"root"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+          <p>
+            And if you inspect the <code>#root</code> element, you will find
+            this:
+          </p>
+          <pre
+            class="language-html"
+          ><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>my-checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+</code></pre>
+          <p>
+            Even though it doesn't have the <code>checked</code> attribute, it
+            is checked; the DOM will reflect that its checked. And also, running
+            <code>$("input#my-checkbox").checked</code> in the console will
+            return <code>true</code>.
+          </p>
+          <p>
+            However, it was causing an issue for me. In my setup, the pages are
+            opened in Chrome and saved as HTML files by Puppeteer. As the
+            checked state is not reflected in the HTML, the prerendered page
+            wouldn't have the checked states. On production, the inputs wouldn't
+            have a default state until the JavaScript is ran, which fails the
+            whole idea of prerendering. And also, recently I have started using
+            the hydrate function by Preact (instead of <code>render</code>) on
+            production, to make it a little faster. Contrary to render, hydrate
+            just attaches the event listeners and stuff; no rerendering or
+            diffing. Because of the way hydrate works, the initial states were
+            never set on production.
+          </p>
+          <p>
+            Keep in mind that you won't encounter this issue when using
+            preact-render-to-string. It only arises when we are using Puppeteer
+            or a similar setup.
+          </p>
+          <h2 id="one-solution" class="linkable-head">
+            <a
+              href="/post/preact-prerendering-issue#one-solution"
+              class="hashtag"
+              data-is-internal=""
+              >#</a
+            ><span>One solution</span>
+          </h2>
+          <p>
+            My first approach was to set the default values for the inputs in
+            useEffect of the DP maker page, manually. The code is like this:
+          </p>
+          <pre
+            class="language-javascript"
+          ><code class="language-javascript"><span class="token comment">// pages/tools/dp-maker.js</span>
+
+<span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">DPMaker</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token comment">// some other stuff</span>
+
+        <span class="token comment">// set default for shape input</span>
+        <span class="token keyword">const</span> noShapesSelected <span class="token operator">=</span> <span class="token known-class-name class-name">Array</span><span class="token punctuation">.</span><span class="token keyword module">from</span><span class="token punctuation">(</span>
+                <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">"input[name=shape]"</span><span class="token punctuation">)</span>
+            <span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">every</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">element</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+                <span class="token keyword control-flow">return</span> <span class="token operator">!</span><span class="token punctuation">(</span>element <span class="token keyword module">as</span> <span class="token maybe-class-name">HTMLInputElement</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">checked</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>noShapesSelected<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> defaultShape <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span>
+                <span class="token string">"input[id=squircle]"</span>
+            <span class="token punctuation">)</span> <span class="token keyword module">as</span> <span class="token maybe-class-name">HTMLInputElement</span><span class="token punctuation">;</span>
+
+            defaultShape<span class="token punctuation">.</span><span class="token property-access">checked</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            defaultShape<span class="token punctuation">.</span><span class="token method function property-access">setAttribute</span><span class="token punctuation">(</span><span class="token string">"checked"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        
+        <span class="token comment">// ...set default for other inputs</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword control-flow">return</span> <span class="token punctuation">(</span>
+        <span class="token comment">// ...</span>
+        <span class="token comment">// the page</span>
+        <span class="token comment">// ...</span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+          <p>
+            The code block adds <code>checked</code> attribute to the default
+            shape when none of the shape inputs are checked.
+          </p>
+          <p>
+            Although the above approach provides a decent solution for the issue
+            I was facing, it has a few drawbacks.
+          </p>
+          <ol>
+            <li>
+              The default value is hardcoded in the snippet (in
+              "input[id=squircle]"). If I want to change the default value in
+              the future, I have to change it here as well.
+            </li>
+            <li>The same must to be done to all the other inputs.</li>
+            <li>
+              If an input element in another page, this code snippet has to be
+              copied to that page.
+            </li>
+          </ol>
+          <p>
+            Of course, we can get around these drawbacks by being careful. But
+            who are we kidding? "We will be careful" never works.
+          </p>
+          <h2 id="a-better-solution" class="linkable-head">
+            <a
+              href="/post/preact-prerendering-issue#a-better-solution"
+              class="hashtag"
+              data-is-internal=""
+              >#</a
+            ><span>A better solution</span>
+          </h2>
+          <p>
+            I was fortunate enough to discover a more effective solution — using
+            the options hook.
+          </p>
+          <p>
+            Preact provides the "options" hooks which lets us hook into the
+            lifecycle of the Preact render. It is an object with a few functions
+            which are called from in each stage of the Preact render. We can
+            override these functions and alter the rendering behavior of Preact.
+            You can learn more about it in
+            <a
+              href="https://preactjs.com/guide/v10/options/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="styled-link"
+              >Preact's documentation</a
+            >.
+          </p>
+          <p>Here's how I used it to solve my issue.</p>
+          <pre
+            class="language-javascript"
+          ><code class="language-javascript"><span class="token comment">// App.js</span>
+<span class="token comment">// The main javascript file.</span>
+
+<span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> options <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"preact/hooks"</span><span class="token punctuation">;</span>
+<span class="token keyword module">import</span> <span class="token imports">forPuppeteer</span> <span class="token keyword module">from</span> <span class="token string">"const:forPuppeteer"</span><span class="token punctuation">;</span>
+<span class="token comment">// forPuppeteer is set by the build tool.</span>
+<span class="token comment">// true on local development and prerendering</span>
+<span class="token comment">// false on production</span>
+
+<span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>forPuppeteer<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// in order to continue the render, we must call this after we are done inside options.diffed.</span>
+    <span class="token keyword">const</span> oldDiffed <span class="token operator">=</span> options<span class="token punctuation">.</span><span class="token property-access">diffed</span><span class="token punctuation">;</span>
+    <span class="token comment">// not all the inputs need to be updated</span>
+    <span class="token keyword">const</span> <span class="token constant">INPUTS_TO_UPDATE</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"radio"</span><span class="token punctuation">,</span> <span class="token string">"range"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    
+    options<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">diffed</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">vnode</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword control-flow">try</span> <span class="token punctuation">{</span>
+            <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>
+                vnode<span class="token punctuation">.</span><span class="token property-access">type</span> <span class="token operator">===</span> <span class="token string">"input"</span> <span class="token operator">&amp;&amp;</span>
+                <span class="token constant">INPUTS_TO_UPDATE</span><span class="token punctuation">.</span><span class="token method function property-access">includes</span><span class="token punctuation">(</span>vnode<span class="token punctuation">.</span><span class="token property-access">props</span><span class="token punctuation">[</span><span class="token string">"type"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+            <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">const</span> inputType <span class="token operator">=</span> vnode<span class="token punctuation">.</span><span class="token property-access">props</span><span class="token punctuation">[</span><span class="token string">"type"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token keyword">const</span> domElement <span class="token operator">=</span> vnode<span class="token punctuation">[</span><span class="token string">"__e"</span><span class="token punctuation">]</span> <span class="token comment">// the input element;</span>
+                <span class="token keyword">const</span> domId <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">input#</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>domElement<span class="token punctuation">.</span><span class="token property-access">id</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+
+                <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>inputType <span class="token operator">===</span> <span class="token string">"radio"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">const</span> isJsChecked <span class="token operator">=</span> vnode<span class="token punctuation">.</span><span class="token property-access">props</span><span class="token punctuation">[</span><span class="token string">"checked"</span><span class="token punctuation">]</span> <span class="token keyword module">as</span> boolean<span class="token punctuation">;</span>
+                    <span class="token keyword">const</span> isDomChecked <span class="token operator">=</span> domElement<span class="token punctuation">.</span><span class="token method function property-access">hasAttribute</span><span class="token punctuation">(</span><span class="token string">"checked"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>isDomChecked <span class="token operator">&amp;&amp;</span> isJsChecked <span class="token operator">===</span> <span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">CHANGING </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>domId<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> as checked</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        domElement<span class="token punctuation">.</span><span class="token method function property-access">setAttribute</span><span class="token punctuation">(</span><span class="token string">"checked"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+
+                    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>isDomChecked <span class="token operator">&amp;&amp;</span> isJsChecked <span class="token operator">===</span> <span class="token boolean">false</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">CHANGING </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>domId<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> as not checked</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        domElement<span class="token punctuation">.</span><span class="token method function property-access">removeAttribute</span><span class="token punctuation">(</span><span class="token string">"checked"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>inputType <span class="token operator">===</span> <span class="token string">"range"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">const</span> jsValue <span class="token operator">=</span> vnode<span class="token punctuation">.</span><span class="token property-access">props</span><span class="token punctuation">[</span><span class="token string">"value"</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">const</span> isDomValueSet <span class="token operator">=</span> domElement<span class="token punctuation">.</span><span class="token method function property-access">hasAttribute</span><span class="token punctuation">(</span><span class="token string">"value"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>isDomValueSet<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>
+                            <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">CHANGING input#</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>domId<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">'s value from </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>domElement<span class="token punctuation">.</span><span class="token property-access">value</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> to </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>jsValue<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span>
+                        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        domElement<span class="token punctuation">.</span><span class="token method function property-access">setAttribute</span><span class="token punctuation">(</span><span class="token string">"value"</span><span class="token punctuation">,</span> jsValue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span> <span class="token keyword control-flow">catch</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            consoel<span class="token punctuation">.</span><span class="token method function property-access">error</span><span class="token punctuation">(</span><span class="token string">"Error in options.diffed"</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        
+        <span class="token function">oldDiffed</span><span class="token punctuation">(</span>vnode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function"><span class="token maybe-class-name">App</span></span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token punctuation">(</span>
+        <span class="token comment">// ...</span>
+        <span class="token comment">// the page</span>
+        <span class="token comment">// ...</span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+          <p>
+            In the above code, I am using <code>options.diffed</code>. This
+            function is invoked after a vnode is rendered to the DOM. When the
+            diffed function is invoked after a input element, I am updating the
+            <code>checked</code> or the <code>value</code> property in the HTML
+            attribute.
+          </p>
+          <p>This approach has a few advantages over the former:</p>
+          <ul>
+            <li>No repeated code. DRY!</li>
+            <li>
+              As the code is located in the main JS file, it works for all
+              inputs spread around all the pages. I don't have to copy the code
+              around.
+            </li>
+            <li>
+              As the code is encapsulated around
+              <code>forPuppeteer</code> check, Rollup automatically omits the
+              code on production — final bundle sizes stay intact.
+            </li>
+          </ul>
+          <p>
+            Pretty neat. The options hook is yet another reason to love Preact ❤
+          </p>
+        </article>
+      </main>
+      <div class="post-share-section">
+        <div>
+          <a
+            href="https://twitter.com/search?q=https://sahithyandev.github.io/post/preact-prerendering-issue"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="styled-link"
+            >Discuss On Twitter</a
+          >
+        </div>
+        <div>
+          <span class="share-span">Share this article on</span
+          ><a
+            href="https://www.twitter.com/share?text=Solving%20the%20Prerendering%20Preact%20Problem%20by%20@sahithyandev&amp;url=https://sahithyandev.github.io/post/preact-prerendering-issue%7D"
+            title="Twitter"
+            target="_blank"
+            rel="noopener noreferrer"
+            class=" "
+            ><svg
+              class="icon icon-tabler icon-tabler-brand-twitter"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path
+                d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z"
+              ></path></svg
+          ></a>
+        </div>
+      </div>
+    </div>
+    <footer>© Sahithyan 2022</footer>
+  </body>
+</html>

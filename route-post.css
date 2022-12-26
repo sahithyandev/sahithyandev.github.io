@@ -119,6 +119,16 @@ article table {
   text-align: center;
   border-spacing: 2rem 0.25rem;
 }
+article ul li,
+article ol li {
+  margin: 5px 0;
+  line-height: calc(1em + 0.4rem);
+}
+article code:not([class*=language-]) {
+  background: rgba(110, 118, 129, 0.37);
+  padding: 2px 5px;
+  border-radius: 4px;
+}
 
 .post-share-section {
   display: flex;
