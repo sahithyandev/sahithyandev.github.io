@@ -5,7 +5,7 @@
 }
 :root {
   font-size: 18px;
-  font-family: "Inter";
+  font-family: "Inter", "Twemoji Mozilla", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "EmojiOne Color", "Android Emoji", sans-serif;
   color-scheme: dark;
   --background: hsl(300deg, 3%, 12%);
   --background-80: hsla(300deg, 3%, 12%, 0.8);
