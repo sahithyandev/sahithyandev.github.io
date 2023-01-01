@@ -129,6 +129,9 @@ article code:not([class*=language-]) {
   padding: 2px 5px;
   border-radius: 4px;
 }
+article pre[class*=language-] {
+  border-radius: 6px;
+}
 
 .post-share-section {
   display: flex;
@@ -143,9 +146,4 @@ article code:not([class*=language-]) {
 .post-share-section .share-span {
   margin-right: 0.5rem;
   opacity: 0.8;
-}
-
-code[class*=language-],
-pre[class*=language-] {
-  white-space: pre-wrap !important;
 }

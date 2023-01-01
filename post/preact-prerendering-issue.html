@@ -88,7 +88,7 @@
     />
     <link
       rel="stylesheet"
-      href="https://unpkg.com/prismjs@1.23.0/themes/prism-twilight.css"
+      href="https://unpkg.com/prismjs@1.29.0/themes/prism-tomorrow.min.css"
     />
   </head>
 
@@ -161,19 +161,17 @@
 
 <span class="token function">render</span><span class="token punctuation">(</span><span class="token operator">&lt;</span><span class="token maybe-class-name">WhateverComponent</span> <span class="token operator">/</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">getElementById</span><span class="token punctuation">(</span><span class="token string">"root"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-          <p>
-            And if you inspect the <code>#root</code> element, you will find
-            this:
-          </p>
+          <p>And if we inspect the <code>#root</code> element, we will find:</p>
           <pre
             class="language-html"
           ><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>my-checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
 </code></pre>
           <p>
-            Even though it doesn't have the <code>checked</code> attribute, it
-            is checked; the DOM will reflect that its checked. And also, running
-            <code>$("input#my-checkbox").checked</code> in the console will
-            return <code>true</code>.
+            We can notice that the element doesn't have a
+            <code>checked</code> attribute. However, it <em>actually</em> is
+            checked; the DOM will reflect that its checked. We can ensure that
+            by running <code>$("input#my-checkbox").checked</code> in the
+            console, which will return <code>true</code>.
           </p>
           <p>
             However, it was causing an issue for me. In my setup, the pages are
@@ -181,15 +179,15 @@
             checked state is not reflected in the HTML, the prerendered page
             wouldn't have the checked states. On production, the inputs wouldn't
             have a default state until the JavaScript is ran, which fails the
-            whole idea of prerendering. And also, recently I have started using
-            the hydrate function by Preact (instead of <code>render</code>) on
-            production, to make it a little faster. Contrary to render, hydrate
-            just attaches the event listeners and stuff; no rerendering or
-            diffing. Because of the way hydrate works, the initial states were
-            never set on production.
+            whole idea of prerendering. And, recently I have started using the
+            <code>hydrate</code> function by Preact (instead of
+            <code>render</code>) on production, to make it a little faster.
+            Contrary to render, hydrate just attaches the event listeners and
+            stuff; no rerendering or diffing. Because of this behavior of
+            hydrate, the initial states were never set on production.
           </p>
           <p>
-            Keep in mind that you won't encounter this issue when using
+            Keep in mind that we won't encounter this issue when using
             preact-render-to-string. It only arises when we are using Puppeteer
             or a similar setup.
           </p>
@@ -280,7 +278,7 @@
             lifecycle of the Preact render. It is an object with a few functions
             which are called from in each stage of the Preact render. We can
             override these functions and alter the rendering behavior of Preact.
-            You can learn more about it in
+            More info about it can be found on
             <a
               href="https://preactjs.com/guide/v10/options/"
               target="_blank"
@@ -421,6 +419,6 @@
         </div>
       </div>
     </div>
-    <footer>© Sahithyan 2022</footer>
+    <footer>© Sahithyan 2023</footer>
   </body>
 </html>
