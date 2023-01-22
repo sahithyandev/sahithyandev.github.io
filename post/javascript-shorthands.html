@@ -92,7 +92,7 @@
   <body>
     <div id="nav-bar">
       <nav>
-        <a href="/" class="nav--logo" data-is-internal="">sahithyan</a
+        <a href="/" class="nav--logo" data-is-internal="">SAHTIHYAN</a
         ><input type="checkbox" id="menu-toggle" /><label
           for="menu-toggle"
           class="hamburger-icon"
@@ -323,30 +323,32 @@ strValue <span class="token operator">==</span> <span class="token string">"true
           <pre
             class="language-js"
           ><code class="language-js"><span class="token keyword">let</span> <span class="token constant">A</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> <span class="token constant">B</span> <span class="token operator">=</span>
-    <span class="token boolean">false</span><span class="token punctuation">(</span>
-        <span class="token comment">// these will work as XOR.</span>
-        <span class="token constant">A</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token constant">B</span>
-    <span class="token punctuation">)</span> <span class="token operator">||</span>
-    <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token constant">A</span> <span class="token operator">&amp;&amp;</span> <span class="token constant">B</span><span class="token punctuation">)</span><span class="token punctuation">(</span>
-        <span class="token comment">// true</span>
-        <span class="token constant">A</span> <span class="token operator">+</span> <span class="token constant">B</span>
-    <span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
-        <span class="token operator">!</span><span class="token constant">A</span> <span class="token operator">+</span> <span class="token operator">!</span><span class="token constant">B</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+<span class="token keyword">let</span> <span class="token constant">B</span> <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+<span class="token comment">// these will work as XOR.</span>
+
+<span class="token comment">// 1</span>
+<span class="token punctuation">(</span><span class="token operator">!</span><span class="token constant">A</span> <span class="token operator">&amp;&amp;</span> <span class="token constant">B</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token punctuation">(</span><span class="token constant">A</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token constant">B</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 2</span>
+<span class="token punctuation">(</span><span class="token operator">!</span><span class="token constant">A</span> <span class="token operator">||</span> <span class="token operator">!</span><span class="token constant">B</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span><span class="token constant">A</span> <span class="token operator">||</span> <span class="token constant">B</span><span class="token punctuation">)</span>
 </code></pre>
           <p>
-            But the above code is too big and we want a lot of time to write it
-            without any problem. The problem can be solved with just a “^”.
+            Both of the above expressions work as a XOR gate. There is an
+            operator for XOR: “^”. We don't have to write the XOR expression
+            using &amp;&amp; and ||.
           </p>
           <pre
             class="language-js"
-          ><code class="language-js"><span class="token comment">// Shorthand</span>
-<span class="token constant">A</span> <span class="token operator">^</span> <span class="token constant">B</span><span class="token punctuation">;</span> <span class="token comment">// ^ works as XOR</span>
+          ><code class="language-js"><span class="token known-class-name class-name">Boolean</span><span class="token punctuation">(</span><span class="token constant">A</span> <span class="token operator">^</span> <span class="token constant">B</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// ^ works as XOR</span>
 </code></pre>
           <p>
-            The above short-handed code will work. But there is a small problem
-            with the operator, it returns a number instead of a boolean. You can
-            simply convert it into a boolean with the shorthand #3.
+            The above short-handed code will work. The there is a small problem
+            with the operator, it returns a number instead of a boolean.
+          </p>
+          <p>
+            Note that the operator is BITWISE XOR. Which means it will return
+            other values when the operands are numbers or other types.
           </p>
           <h2 id="string.split('')" class="linkable-head">
             <a
@@ -362,7 +364,7 @@ strValue <span class="token operator">==</span> <span class="token string">"true
           </p>
           <pre
             class="language-js"
-          ><code class="language-js"><span class="token keyword">let</span> name <span class="token operator">=</span> <span class="token string">"Sahithyan"</span><span class="token punctuation">;</span> <span class="token comment">// my name</span>
+          ><code class="language-js"><span class="token keyword">let</span> name <span class="token operator">=</span> <span class="token string">"Sahithyan"</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> letters <span class="token operator">=</span> name<span class="token punctuation">.</span><span class="token method function property-access">split</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [S, a, h, i, t, h, y, a, n]</span>
 </code></pre>
           <p>
@@ -373,7 +375,7 @@ strValue <span class="token operator">==</span> <span class="token string">"true
           </p>
           <pre
             class="language-js"
-          ><code class="language-js"><span class="token keyword">let</span> name <span class="token operator">=</span> <span class="token string">"Sahithyan"</span><span class="token punctuation">;</span> <span class="token comment">// my name</span>
+          ><code class="language-js"><span class="token keyword">let</span> name <span class="token operator">=</span> <span class="token string">"Sahithyan"</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> letters <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token spread operator">...</span>name<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// [S, a, h, i, t, h, y, a, n]</span>
 </code></pre>
           <p>

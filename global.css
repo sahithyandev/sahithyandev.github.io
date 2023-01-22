@@ -114,7 +114,6 @@ nav {
 nav .nav--logo {
   font-size: 1.2rem;
   font-weight: bold;
-  text-transform: uppercase;
 }
 nav #menu-toggle,
 nav .hamburger-icon {

@@ -3,32 +3,37 @@
   <url>
     <loc>https://sahithyandev.github.io/</loc>
     <changefreq>monthly</changefreq>
-    <lastmod>2023-01-21</lastmod>
+    <lastmod>2023-01-22</lastmod>
   </url>
   <url>
     <loc>https://sahithyandev.github.io/tidbits</loc>
     <changefreq>monthly</changefreq>
-    <lastmod>2023-01-21</lastmod>
+    <lastmod>2023-01-22</lastmod>
   </url>
   <url>
     <loc>https://sahithyandev.github.io/projects</loc>
     <changefreq>monthly</changefreq>
-    <lastmod>2023-01-21</lastmod>
+    <lastmod>2023-01-22</lastmod>
   </url>
   <url>
     <loc>https://sahithyandev.github.io/posts</loc>
     <changefreq>monthly</changefreq>
-    <lastmod>2023-01-21</lastmod>
+    <lastmod>2023-01-22</lastmod>
   </url>
   <url>
     <loc>https://sahithyandev.github.io/about</loc>
     <changefreq>monthly</changefreq>
-    <lastmod>2023-01-21</lastmod>
+    <lastmod>2023-01-22</lastmod>
   </url>
   <url>
     <loc>https://sahithyandev.github.io/tools/dp-maker</loc>
     <changefreq>monthly</changefreq>
-    <lastmod>2023-01-21</lastmod>
+    <lastmod>2023-01-22</lastmod>
+  </url>
+  <url>
+    <loc>https://sahithyandev.github.io/post/xcalc-for-android</loc>
+    <changefreq>monthly</changefreq>
+    <lastmod>22 January 2023</lastmod>
   </url>
   <url>
     <loc>https://sahithyandev.github.io/post/preact-prerendering-issue</loc>
@@ -46,19 +51,19 @@
     <lastmod>14 March 2022</lastmod>
   </url>
   <url>
-    <loc>https://sahithyandev.github.io/post/a-javascript-quiz</loc>
-    <changefreq>monthly</changefreq>
-    <lastmod>14 March 2022</lastmod>
-  </url>
-  <url>
     <loc>https://sahithyandev.github.io/post/building-xcalc</loc>
     <changefreq>monthly</changefreq>
     <lastmod>7 December 2022</lastmod>
   </url>
   <url>
-    <loc>https://sahithyandev.github.io/post/javascript-shorthands</loc>
+    <loc>https://sahithyandev.github.io/post/a-javascript-quiz</loc>
     <changefreq>monthly</changefreq>
     <lastmod>14 March 2022</lastmod>
+  </url>
+  <url>
+    <loc>https://sahithyandev.github.io/post/javascript-shorthands</loc>
+    <changefreq>monthly</changefreq>
+    <lastmod>22 January 2023</lastmod>
   </url>
   <url>
     <loc>https://sahithyandev.github.io/post/divisibility-rules</loc>
