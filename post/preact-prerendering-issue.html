@@ -45,6 +45,8 @@
       property="og:image:alt"
       content="Having trouble while prerendering a Preact site? In this post, I'll share my experience finding a solution to this common problem."
     />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
@@ -79,6 +81,31 @@
           .catch((error) => {
             console.error("Error while initializing service worker", error);
           });
+      }
+      window.__supportCssHas = true;
+      try {
+        document.querySelector("*:has(input:checked)");
+      } catch (e) {
+        if (e instanceof DOMException) {
+          window.__supportCssHas = false;
+        }
+      }
+
+      // select pre-selected theme
+      const theme = window.localStorage.getItem("theme");
+      if (theme) {
+        function setTheme() {
+          const themeElement = document.querySelector(`input#theme-${theme}`);
+          if (!themeElement) {
+            requestAnimationFrame(setTheme);
+          } else {
+            themeElement.checked = true;
+            if (!window.__supportCssHas) {
+              document.documentElement.setAttribute("data-theme", theme);
+            }
+          }
+        }
+        requestAnimationFrame(setTheme);
       }
     </script>
 
@@ -117,6 +144,36 @@
           </li>
           <li>
             <a href="/about" class="nav--link" data-is-internal="">About</a>
+          </li>
+          <li class="theme-switch-labels">
+            <div class="one-push-switch">
+              <input
+                class="sr-only"
+                type="radio"
+                name="theme-switch"
+                id="theme-auto"
+                value="auto"
+                checked=""
+              /><label for="theme-light" title="Change to light theme"
+                >auto</label
+              ><input
+                class="sr-only"
+                type="radio"
+                name="theme-switch"
+                id="theme-light"
+                value="light"
+              /><label for="theme-dark" title="Change to dark theme"
+                >light</label
+              ><input
+                class="sr-only"
+                type="radio"
+                name="theme-switch"
+                id="theme-dark"
+                value="dark"
+              /><label for="theme-auto" title="Use user-preferenced theme"
+                >dark</label
+              >
+            </div>
           </li>
         </ul>
       </nav>
@@ -229,7 +286,7 @@
             defaultShape<span class="token punctuation">.</span><span class="token property-access">checked</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
             defaultShape<span class="token punctuation">.</span><span class="token method function property-access">setAttribute</span><span class="token punctuation">(</span><span class="token string">"checked"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-        
+
         <span class="token comment">// ...set default for other inputs</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -307,7 +364,7 @@
     <span class="token keyword">const</span> oldDiffed <span class="token operator">=</span> options<span class="token punctuation">.</span><span class="token property-access">diffed</span><span class="token punctuation">;</span>
     <span class="token comment">// not all the inputs need to be updated</span>
     <span class="token keyword">const</span> <span class="token constant">INPUTS_TO_UPDATE</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"radio"</span><span class="token punctuation">,</span> <span class="token string">"range"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    
+
     options<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">diffed</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">vnode</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
         <span class="token keyword control-flow">try</span> <span class="token punctuation">{</span>
             <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>
@@ -346,7 +403,7 @@
         <span class="token punctuation">}</span> <span class="token keyword control-flow">catch</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
             consoel<span class="token punctuation">.</span><span class="token method function property-access">error</span><span class="token punctuation">(</span><span class="token string">"Error in options.diffed"</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-        
+
         <span class="token function">oldDiffed</span><span class="token punctuation">(</span>vnode<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
@@ -402,7 +459,7 @@
             title="Twitter"
             target="_blank"
             rel="noopener noreferrer"
-            class=" "
+            class=""
             ><svg
               class="icon icon-tabler icon-tabler-brand-twitter"
               width="24"

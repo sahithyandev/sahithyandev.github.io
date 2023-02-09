@@ -36,6 +36,8 @@
       content="https://sahithyandev.github.io/og-images/base.png"
     />
     <meta property="og:image:alt" content="Sahithyan" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
@@ -70,6 +72,31 @@
           .catch((error) => {
             console.error("Error while initializing service worker", error);
           });
+      }
+      window.__supportCssHas = true;
+      try {
+        document.querySelector("*:has(input:checked)");
+      } catch (e) {
+        if (e instanceof DOMException) {
+          window.__supportCssHas = false;
+        }
+      }
+
+      // select pre-selected theme
+      const theme = window.localStorage.getItem("theme");
+      if (theme) {
+        function setTheme() {
+          const themeElement = document.querySelector(`input#theme-${theme}`);
+          if (!themeElement) {
+            requestAnimationFrame(setTheme);
+          } else {
+            themeElement.checked = true;
+            if (!window.__supportCssHas) {
+              document.documentElement.setAttribute("data-theme", theme);
+            }
+          }
+        }
+        requestAnimationFrame(setTheme);
       }
     </script>
 
@@ -174,6 +201,36 @@
           <li>
             <a href="/about" class="nav--link" data-is-internal="">About</a>
           </li>
+          <li class="theme-switch-labels">
+            <div class="one-push-switch">
+              <input
+                class="sr-only"
+                type="radio"
+                name="theme-switch"
+                id="theme-auto"
+                value="auto"
+                checked=""
+              /><label for="theme-light" title="Change to light theme"
+                >auto</label
+              ><input
+                class="sr-only"
+                type="radio"
+                name="theme-switch"
+                id="theme-light"
+                value="light"
+              /><label for="theme-dark" title="Change to dark theme"
+                >light</label
+              ><input
+                class="sr-only"
+                type="radio"
+                name="theme-switch"
+                id="theme-dark"
+                value="dark"
+              /><label for="theme-auto" title="Use user-preferenced theme"
+                >dark</label
+              >
+            </div>
+          </li>
         </ul>
       </nav>
     </div>
@@ -190,7 +247,7 @@
         <div class="posts-container">
           <div class="post-card show" data-slug="xcalc-for-android">
             <span class="post-released-date">22 January 2023</span
-            ><a href="/post/xcalc-for-android" data-is-internal="" class=" "
+            ><a href="/post/xcalc-for-android" data-is-internal="" class=""
               ><h3 class="title">XCalc for Android</h3></a
             >
             <p class="description">
@@ -206,7 +263,7 @@
             ><a
               href="/post/preact-prerendering-issue"
               data-is-internal=""
-              class=" "
+              class=""
               ><h3 class="title">Solving the Prerendering Preact Problem</h3></a
             >
             <p class="description">
@@ -220,7 +277,7 @@
           </div>
           <div class="post-card show" data-slug="open-graph-images">
             <span class="post-released-date">20 November 2022</span
-            ><a href="/post/open-graph-images" data-is-internal="" class=" "
+            ><a href="/post/open-graph-images" data-is-internal="" class=""
               ><h3 class="title">Static Open Graph images</h3></a
             >
             <p class="description">
@@ -236,7 +293,7 @@
             ><a
               href="/post/the-is-odd-npm-package-meme"
               data-is-internal=""
-              class=" "
+              class=""
               ><h3 class="title">The is-odd NPM package</h3></a
             >
             <p class="description"></p>
@@ -244,7 +301,7 @@
           </div>
           <div class="post-card show" data-slug="a-javascript-quiz">
             <span class="post-released-date">17 September 2021</span
-            ><a href="/post/a-javascript-quiz" data-is-internal="" class=" "
+            ><a href="/post/a-javascript-quiz" data-is-internal="" class=""
               ><h3 class="title">A JavaScript Quiz — Explained</h3></a
             >
             <p class="description">
@@ -256,7 +313,7 @@
           </div>
           <div class="post-card show" data-slug="building-xcalc">
             <span class="post-released-date">10 June 2021</span
-            ><a href="/post/building-xcalc" data-is-internal="" class=" "
+            ><a href="/post/building-xcalc" data-is-internal="" class=""
               ><h3 class="title">Story of Building XCalc</h3></a
             >
             <p class="description">
@@ -269,7 +326,7 @@
           </div>
           <div class="post-card show" data-slug="javascript-shorthands">
             <span class="post-released-date">7 April 2021</span
-            ><a href="/post/javascript-shorthands" data-is-internal="" class=" "
+            ><a href="/post/javascript-shorthands" data-is-internal="" class=""
               ><h3 class="title">JavaScript Shorthands</h3></a
             >
             <p class="description">
@@ -282,7 +339,7 @@
           </div>
           <div class="post-card show" data-slug="divisibility-rules">
             <span class="post-released-date">27 February 2021</span
-            ><a href="/post/divisibility-rules" data-is-internal="" class=" "
+            ><a href="/post/divisibility-rules" data-is-internal="" class=""
               ><h3 class="title">Divisibility Rules - An Explanation</h3></a
             >
             <p class="description">

@@ -42,6 +42,8 @@
       property="og:image:alt"
       content="I added statically-generated Open Graph images to my posts; and how I optimized them."
     />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
@@ -76,6 +78,31 @@
           .catch((error) => {
             console.error("Error while initializing service worker", error);
           });
+      }
+      window.__supportCssHas = true;
+      try {
+        document.querySelector("*:has(input:checked)");
+      } catch (e) {
+        if (e instanceof DOMException) {
+          window.__supportCssHas = false;
+        }
+      }
+
+      // select pre-selected theme
+      const theme = window.localStorage.getItem("theme");
+      if (theme) {
+        function setTheme() {
+          const themeElement = document.querySelector(`input#theme-${theme}`);
+          if (!themeElement) {
+            requestAnimationFrame(setTheme);
+          } else {
+            themeElement.checked = true;
+            if (!window.__supportCssHas) {
+              document.documentElement.setAttribute("data-theme", theme);
+            }
+          }
+        }
+        requestAnimationFrame(setTheme);
       }
     </script>
 
@@ -115,6 +142,36 @@
           <li>
             <a href="/about" class="nav--link" data-is-internal="">About</a>
           </li>
+          <li class="theme-switch-labels">
+            <div class="one-push-switch">
+              <input
+                class="sr-only"
+                type="radio"
+                name="theme-switch"
+                id="theme-auto"
+                value="auto"
+                checked=""
+              /><label for="theme-light" title="Change to light theme"
+                >auto</label
+              ><input
+                class="sr-only"
+                type="radio"
+                name="theme-switch"
+                id="theme-light"
+                value="light"
+              /><label for="theme-dark" title="Change to dark theme"
+                >light</label
+              ><input
+                class="sr-only"
+                type="radio"
+                name="theme-switch"
+                id="theme-dark"
+                value="dark"
+              /><label for="theme-auto" title="Use user-preferenced theme"
+                >dark</label
+              >
+            </div>
+          </li>
         </ul>
       </nav>
     </div>
@@ -132,50 +189,50 @@
             <ol>
               <li>
                 <a
-                  href="/post/open-graph-images#a-small-intro"
+                  href="/post/open-graph-images#a"
                   data-is-internal=""
                   class="styled-link"
-                  >A small intro</a
+                  >A</a
                 >
               </li>
               <li>
                 <a
-                  href="/post/open-graph-images#my-initial-approach"
+                  href="/post/open-graph-images#my"
                   data-is-internal=""
                   class="styled-link"
-                  >My initial approach</a
+                  >My</a
                 >
               </li>
               <li>
                 <a
-                  href="/post/open-graph-images#using-puppeteer"
+                  href="/post/open-graph-images#using"
                   data-is-internal=""
                   class="styled-link"
-                  >Using Puppeteer</a
+                  >Using</a
                 >
               </li>
               <li>
                 <a
-                  href="/post/open-graph-images#vercel's-solution"
+                  href="/post/open-graph-images#vercel's"
                   data-is-internal=""
                   class="styled-link"
-                  >Vercel's solution</a
+                  >Vercel's</a
                 >
               </li>
               <li>
                 <a
-                  href="/post/open-graph-images#the-one-issue-with-vercel's-solution"
+                  href="/post/open-graph-images#the"
                   data-is-internal=""
                   class="styled-link"
-                  >The one issue with Vercel's solution</a
+                  >The</a
                 >
               </li>
               <li>
                 <a
-                  href="/post/open-graph-images#current-approach"
+                  href="/post/open-graph-images#current"
                   data-is-internal=""
                   class="styled-link"
-                  >Current approach</a
+                  >Current</a
                 >
               </li>
             </ol>
@@ -460,7 +517,7 @@
             title="Twitter"
             target="_blank"
             rel="noopener noreferrer"
-            class=" "
+            class=""
             ><svg
               class="icon icon-tabler icon-tabler-brand-twitter"
               width="24"

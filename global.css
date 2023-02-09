@@ -1,3 +1,23 @@
+.one-push-switch {
+  display: grid;
+}
+.one-push-switch label {
+  grid-column: 1;
+  grid-row: 1;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+  font-size: 1rem;
+  opacity: 0;
+}
+.one-push-switch input {
+  display: none;
+}
+.one-push-switch input:checked + label {
+  cursor: pointer;
+  pointer-events: all;
+  opacity: 1;
+}
+
 @keyframes comeDownFromTop {
   to {
     transform: translateY(0px);
@@ -41,6 +61,66 @@
     background: hsl(240deg, 5%, 86%);
   }
 }
+:root[data-theme=light] {
+  color-scheme: light;
+  --background: #fffbfe;
+  --background-80: hsla(315, 100%, 99%, 0.8);
+  --secondary-background: hsla(315, 2%, 78%, 0.7);
+  --font-color: #131315;
+  --font-color-40: hsl(240, 5%, 8%, 0.4);
+  --secondary: hsl(213deg, 94%, 45%);
+  --secondary-30: hsl(213deg, 94%, 68%, 0.3);
+  --project-card-bg: hsl(240deg, 5%, 90%);
+}
+:root[data-theme=light] input {
+  background: hsl(240deg, 5%, 86%);
+}
+
+:root:has(#theme-light:checked) {
+  color-scheme: light;
+  --background: #fffbfe;
+  --background-80: hsla(315, 100%, 99%, 0.8);
+  --secondary-background: hsla(315, 2%, 78%, 0.7);
+  --font-color: #131315;
+  --font-color-40: hsl(240, 5%, 8%, 0.4);
+  --secondary: hsl(213deg, 94%, 45%);
+  --secondary-30: hsl(213deg, 94%, 68%, 0.3);
+  --project-card-bg: hsl(240deg, 5%, 90%);
+}
+:root:has(#theme-light:checked) input {
+  background: hsl(240deg, 5%, 86%);
+}
+
+:root[data-theme=dark] {
+  color-scheme: dark;
+  --background: hsl(300deg, 3%, 12%);
+  --background-80: hsla(300deg, 3%, 12%, 0.8);
+  --secondary-background: hsla(240, 5%, 18%, 0.6);
+  --font-color: #fffbfe;
+  --font-color-40: hsl(315, 100%, 99%, 0.4);
+  --main: #faf33e;
+  --main-half-opacity: #faf33e70;
+  --secondary: hsl(213deg, 94%, 68%);
+  --secondary-30: hsl(213, 94%, 68%, 0.3);
+  --secondary-dark: #2563eb;
+  --project-card-bg: hsl(240deg 8% 14%);
+}
+
+:root:has(#theme-dark:checked) {
+  color-scheme: dark;
+  --background: hsl(300deg, 3%, 12%);
+  --background-80: hsla(300deg, 3%, 12%, 0.8);
+  --secondary-background: hsla(240, 5%, 18%, 0.6);
+  --font-color: #fffbfe;
+  --font-color-40: hsl(315, 100%, 99%, 0.4);
+  --main: #faf33e;
+  --main-half-opacity: #faf33e70;
+  --secondary: hsl(213deg, 94%, 68%);
+  --secondary-30: hsl(213, 94%, 68%, 0.3);
+  --secondary-dark: #2563eb;
+  --project-card-bg: hsl(240deg 8% 14%);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -152,6 +232,9 @@ nav ul li:hover {
   nav ul li:nth-child(4) {
     animation-delay: 0.34s;
   }
+  nav ul li:nth-child(5) {
+    animation-delay: 0.42s;
+  }
 }
 @media (max-width: 640px) {
   nav {
@@ -214,6 +297,9 @@ nav ul li:hover {
   }
   nav ul li:nth-child(4) {
     transition-delay: 0.9s;
+  }
+  nav ul li:nth-child(5) {
+    transition-delay: 1s;
   }
   nav #menu-toggle:checked ~ ul {
     transform: translateX(0);

@@ -45,6 +45,8 @@
       property="og:image:alt"
       content="Explanation of an amazing quiz I took an year ago."
     />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
@@ -79,6 +81,31 @@
           .catch((error) => {
             console.error("Error while initializing service worker", error);
           });
+      }
+      window.__supportCssHas = true;
+      try {
+        document.querySelector("*:has(input:checked)");
+      } catch (e) {
+        if (e instanceof DOMException) {
+          window.__supportCssHas = false;
+        }
+      }
+
+      // select pre-selected theme
+      const theme = window.localStorage.getItem("theme");
+      if (theme) {
+        function setTheme() {
+          const themeElement = document.querySelector(`input#theme-${theme}`);
+          if (!themeElement) {
+            requestAnimationFrame(setTheme);
+          } else {
+            themeElement.checked = true;
+            if (!window.__supportCssHas) {
+              document.documentElement.setAttribute("data-theme", theme);
+            }
+          }
+        }
+        requestAnimationFrame(setTheme);
       }
     </script>
 
@@ -117,6 +144,36 @@
           </li>
           <li>
             <a href="/about" class="nav--link" data-is-internal="">About</a>
+          </li>
+          <li class="theme-switch-labels">
+            <div class="one-push-switch">
+              <input
+                class="sr-only"
+                type="radio"
+                name="theme-switch"
+                id="theme-auto"
+                value="auto"
+                checked=""
+              /><label for="theme-light" title="Change to light theme"
+                >auto</label
+              ><input
+                class="sr-only"
+                type="radio"
+                name="theme-switch"
+                id="theme-light"
+                value="light"
+              /><label for="theme-dark" title="Change to dark theme"
+                >light</label
+              ><input
+                class="sr-only"
+                type="radio"
+                name="theme-switch"
+                id="theme-dark"
+                value="dark"
+              /><label for="theme-auto" title="Use user-preferenced theme"
+                >dark</label
+              >
+            </div>
           </li>
         </ul>
       </nav>
@@ -187,10 +244,10 @@
                   </li>
                   <li>
                     <a
-                      href="/post/a-javascript-quiz#q5-(my-favorite-one)"
+                      href="/post/a-javascript-quiz#q5"
                       data-is-internal=""
                       class="styled-link"
-                      >Q5 (My favorite one)</a
+                      >Q5</a
                     >
                   </li>
                   <li>
@@ -227,10 +284,10 @@
                   </li>
                   <li>
                     <a
-                      href="/post/a-javascript-quiz#q10-(easiest-in-my-opinion)"
+                      href="/post/a-javascript-quiz#q10"
                       data-is-internal=""
                       class="styled-link"
-                      >Q10 (Easiest in my opinion)</a
+                      >Q10</a
                     >
                   </li>
                   <li>
@@ -269,10 +326,10 @@
               </li>
               <li>
                 <a
-                  href="/post/a-javascript-quiz#finally:-thank-you!"
+                  href="/post/a-javascript-quiz#finally:"
                   data-is-internal=""
                   class="styled-link"
-                  >Finally: Thank You!</a
+                  >Finally:</a
                 >
               </li>
             </ol>
@@ -339,9 +396,9 @@
           </h3>
           <pre
             class="language-javascript"
-          ><code class="language-javascript"><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-  <span class="token keyword">delete</span> x<span class="token punctuation">;</span>
-  <span class="token keyword control-flow">return</span> x<span class="token punctuation">;</span>
+          ><code class="language-javascript"><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">delete</span> x<span class="token punctuation">;</span>
+    <span class="token keyword control-flow">return</span> x<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
           <p>
@@ -906,7 +963,7 @@ x<span class="token punctuation">;</span>
             title="Twitter"
             target="_blank"
             rel="noopener noreferrer"
-            class=" "
+            class=""
             ><svg
               class="icon icon-tabler icon-tabler-brand-twitter"
               width="24"
