@@ -1,1 +1,0 @@
-const a="Sahithyan",t="The website/blog of Sahithyan, A teen front-end developer, a student and a tech enthusiast from Jaffna, Sri Lanka.",e="@sahithyandev",h="https://sahithyandev.github.io",s="https://sahithyandev.github.io/feed.xml";export{e as A,t as D,s as R,a as T,h as W};

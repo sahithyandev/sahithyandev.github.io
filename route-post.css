@@ -20,6 +20,19 @@
   color: var(--secondary-dark);
 }
 
+aside.note {
+  border-radius: 10px;
+  padding: 0px 20px;
+  color: inherit;
+  line-height: calc(1em + 0.5rem);
+  border: 2px solid var(--secondary);
+  background-color: hsla(213deg, 94%, 45%, 0.2);
+}
+aside.note.type-danger {
+  border: 2px solid #ff3c3c;
+  background: hsla(9deg, 91%, 83%, 0.21);
+}
+
 .post-title {
   margin: 2rem 0 0.5rem;
   font-size: 1.5rem;
@@ -118,6 +131,14 @@ article table {
   margin: 1rem auto;
   text-align: center;
   border-spacing: 2rem 0.25rem;
+  border-collapse: collapse;
+}
+article table td,
+article table th {
+  line-height: calc(1rem + 0.4em);
+  border: 1px solid var(--font-color-40);
+  text-align: center;
+  padding: 5px 8px;
 }
 article ul li,
 article ol li {
@@ -131,13 +152,6 @@ article code:not([class*=language-]) {
 }
 article pre[class*=language-] {
   border-radius: 6px;
-}
-article aside.note.type-danger {
-  border: 2px solid #ff3c3c;
-  background: hsla(9deg, 91%, 83%, 0.21);
-  border-radius: 10px;
-  padding: 0px 20px;
-  color: inherit;
 }
 
 .post-share-section {
