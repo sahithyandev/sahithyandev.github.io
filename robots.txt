@@ -1,2 +1,5 @@
+User-Agent: ChatGPT-User
+Disallow: /post/
+
 User-Agent: *
 Sitemap: https://sahithyandev.github.io/sitemap.xml
